@@ -33,6 +33,8 @@
 
 #define BTREE_USB_RET_SIZE 8
 
+#define INT_MAX		((int)(~0U>>1))
+
 struct usb_btree_io {
 	unsigned int address;
 	unsigned int data;
@@ -449,6 +451,7 @@ int main(int argc, char **argv)
 	}
 	printf("rgbbuf = 0x%x , header size = %d, data size = %d\n", rgbbuf, rgb_header, rgb_size);
 	
+#if 0
 	printf(" read frame from the camera : i = %d, count = %d, max packet size = %d \n", i, count, pSize);
 	while(i<count)
 	{
@@ -459,6 +462,19 @@ int main(int argc, char **argv)
 		}
 		i++;
 	}
+#else
+	if(yuv_size < INT_MAX) {
+		ret = read(usb_fd, dbuf, yuv_size);
+		if (ret < 0) {
+				printf("fail to read image data \n");
+				goto error;
+		}
+	} else {
+		printf(" the buf size is too big to be read at once ");
+		printf(" buf size is %d, max buf size is %d \n",
+				yuv_size, INT_MAX);
+	}
+#endif
 	// input header information for RGB
 	printf("input header information for RGB\n");
 	MakeRGBHeader(fd, width, height);
