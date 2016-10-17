@@ -371,6 +371,7 @@ int main(int argc, char **argv)
 	struct usb_btree_io io_data;
 	int addr, width, height = 0;
 	int i, j, count, pSize, yuv_size, rgb_size, rgb_header = 0;
+	int loop_count = 10;
 
 	printf("Btree USB TEST Application \n");
 	printf("Open Btree USB Device : %s \n", argv[1]);
@@ -409,19 +410,6 @@ int main(int argc, char **argv)
 	width = io_data.data >> 16;
 	height = io_data.data & 0x0000FFFF;
 	printf("width = %d, height = %d \n", width, height);
-
-	printf("Set Capture Enable\n");
-	memset(buf, 0x0, BTREE_USB_RET_SIZE);
-	io_data.address = 0;
-	io_data.data = 1;
-	io_data.buf = buf;
-	ret = usb_ioctl(usb_fd, USB_CMD_CAPTURE, &io_data);
-	if (ret < 0) {
-		printf("fail to start capture :%d \n",ret);
-		goto error;
-	}
-	printf("ret = %d \n", io_data.result);
-
 	printf("create a file to copy the image data \n");
 	fd = creat("./resultImage.bmp", 0644);
 	if (fd < 0) {
@@ -432,9 +420,9 @@ int main(int argc, char **argv)
 
 	i = 0;
 	// it should be chanded to get the max packet size from class driver
-	pSize = 1024;
+	//pSize = 1024;
 	yuv_size = CAL_YUVSIZE(width, height);
-	count = yuv_size/pSize;
+	//count = yuv_size/pSize;
 	dbuf = (unsigned char*)malloc(yuv_size);
 	if (!dbuf) {
 		printf("fail to malloc for yuv data \n");
@@ -451,30 +439,58 @@ int main(int argc, char **argv)
 	}
 	printf("rgbbuf = 0x%x , header size = %d, data size = %d\n", rgbbuf, rgb_header, rgb_size);
 	
-#if 0
-	printf(" read frame from the camera : i = %d, count = %d, max packet size = %d \n", i, count, pSize);
-	while(i<count)
+	while (loop_count--)
 	{
-		ret = read(usb_fd, dbuf+(i*pSize), pSize);
+		printf("Set Capture Enable\n");
+		memset(buf, 0x0, BTREE_USB_RET_SIZE);
+		io_data.address = 0;
+		io_data.data = 1;
+		io_data.buf = buf;
+		ret = usb_ioctl(usb_fd, USB_CMD_CAPTURE, &io_data);
 		if (ret < 0) {
+			printf("fail to start capture :%d \n",ret);
+			goto error;
+		}
+		printf("ret = %d \n", io_data.result);
+#if 0
+		printf(" read frame from the camera : i = %d, count = %d, max packet size = %d \n", i, count, pSize);
+		while(i<count)
+		{
+			ret = read(usb_fd, dbuf+(i*pSize), pSize);
+			if (ret < 0) {
 				printf("fail to read image data \n");
 				goto error;
+			}
+			i++;
 		}
-		i++;
-	}
 #else
-	if(yuv_size < INT_MAX) {
-		ret = read(usb_fd, dbuf, yuv_size);
-		if (ret < 0) {
+		if(yuv_size < INT_MAX) {
+			memset(dbuf, 0x0, yuv_size);
+			ret = read(usb_fd, dbuf, yuv_size);
+			if (ret < 0) {
 				printf("fail to read image data \n");
 				goto error;
-		}
-	} else {
-		printf(" the buf size is too big to be read at once ");
-		printf(" buf size is %d, max buf size is %d \n",
+			}
+			printf("success reading image data \n");
+		} else {
+			printf(" the buf size is too big to be read at once ");
+			printf(" buf size is %d, max buf size is %d \n",
 				yuv_size, INT_MAX);
-	}
+			goto error;
+		}
 #endif
+		printf("Set Capture Enable\n");
+		memset(buf, 0x0, BTREE_USB_RET_SIZE);
+		io_data.address = 0;
+		io_data.data = 0;
+		io_data.buf = buf;
+		ret = usb_ioctl(usb_fd, USB_CMD_CAPTURE, &io_data);
+		if (ret < 0) {
+			printf("fail to start capture :%d \n",ret);
+			goto error;
+		}
+		printf("ret = %d \n", io_data.result);
+	}
 	// input header information for RGB
 	printf("input header information for RGB\n");
 	MakeRGBHeader(fd, width, height);
@@ -484,7 +500,6 @@ int main(int argc, char **argv)
 	if (ret < 0)
 		printf("fail to write the data into the file \n");
 	printf("finish copying \n");
-
 error:
 	if(dbuf)
 		free(dbuf);
