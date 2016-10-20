@@ -63,7 +63,7 @@ static int MakeRGBHeader (int handle, unsigned int m_hsize/*width*/, unsigned in
 	m_bt.btTYPE[0] = 'B';
 	m_bt.btTYPE[1] = 'M';
 
-	m_bf.bfSize = CAL_RGBSIZE(m_hsize, m_vsize);
+	m_bf.bfSize = CAL_RGBSIZE(m_hsize, m_vsize)
 		+ sizeof(BMPTYPEHEADER) + sizeof(BMPFILEHEADER) + sizeof(BMPINFOHEADER);
 	m_bf.bfReserved1 = 0;
 	m_bf.bfReserved2 = 0;
@@ -308,7 +308,7 @@ static int capture_test(int drm_fd, char *video,
 	int gem_fds[MAX_BUFFER_COUNT] = {-1, };
 	int dma_fds[MAX_BUFFER_COUNT] = {-1, };
 	void *pVaddrs[MAX_BUFFER_COUNT] = {NULL, };
-	int loop_count = 10;
+	int loop_count = 100;
 
 	printf("Capture Test \n");
 	video_fd = open(video, O_RDWR);
