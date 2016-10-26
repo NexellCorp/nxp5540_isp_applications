@@ -269,14 +269,16 @@ static int v4l2_qbuf(int fd, int index, uint32_t buf_type, uint32_t mem_type,
 		int dma_fd, int length)
 {
 	struct v4l2_buffer v4l2_buf;
+	struct v4l2_plane planes[3];
 
 	bzero(&v4l2_buf, sizeof(v4l2_buf));
-	v4l2_buf.m.fd = dma_fd;
+	v4l2_buf.length = 1; /* the number of plane for multi plane*/
 	v4l2_buf.type = buf_type;
 	v4l2_buf.memory = mem_type;
 	v4l2_buf.index = index;
-	v4l2_buf.length = length;
-
+	v4l2_buf.m.planes = planes;
+	v4l2_buf.m.planes[0].m.fd = dma_fd;
+	v4l2_buf.m.planes[0].length = length;
 	return ioctl(fd, VIDIOC_QBUF, &v4l2_buf);
 }
 
@@ -284,10 +286,13 @@ static int v4l2_dqbuf(int fd, uint32_t buf_type, uint32_t mem_type, int *index)
 {
 	int ret;
 	struct v4l2_buffer v4l2_buf;
+	struct v4l2_plane planes[3];
 
 	bzero(&v4l2_buf, sizeof(v4l2_buf));
 	v4l2_buf.type = buf_type;
 	v4l2_buf.memory = mem_type;
+	v4l2_buf.length = 1;
+	v4l2_buf.m.planes = planes;
 
 	ret = ioctl(fd, VIDIOC_DQBUF, &v4l2_buf);
 	if (ret)
@@ -304,7 +309,7 @@ static int capture_test(int drm_fd, char *video,
 	struct v4l2_format v4l2_fmt;
 	struct v4l2_requestbuffers req;
 	uint32_t size, i = 0;
-	uint32_t buf_type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+	uint32_t buf_type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
 	int gem_fds[MAX_BUFFER_COUNT] = {-1, };
 	int dma_fds[MAX_BUFFER_COUNT] = {-1, };
 	void *pVaddrs[MAX_BUFFER_COUNT] = {NULL, };
@@ -321,10 +326,12 @@ static int capture_test(int drm_fd, char *video,
 
 	printf("set format : 0x%x \n", VIDIOC_S_FMT);
 	bzero(&v4l2_fmt, sizeof(v4l2_fmt));
+
 	v4l2_fmt.type = buf_type;
-	v4l2_fmt.fmt.pix.width = w;
-	v4l2_fmt.fmt.pix.height = h;
-	v4l2_fmt.fmt.pix.pixelformat = format;
+	v4l2_fmt.fmt.pix_mp.width = w;
+	v4l2_fmt.fmt.pix_mp.height = h;
+	v4l2_fmt.fmt.pix_mp.pixelformat = format;
+	v4l2_fmt.fmt.pix_mp.field = V4L2_FIELD_NONE;
 	ret = ioctl(video_fd, VIDIOC_S_FMT, &v4l2_fmt);
 	if (ret) {
 		printf("failed to set format %d \n", ret);
@@ -332,12 +339,12 @@ static int capture_test(int drm_fd, char *video,
 	}
 	printf("request bufs : 0x%x \n", VIDIOC_REQBUFS);
 	bzero(&req, sizeof(req));
-	req.count = 10;
+	req.count = MAX_BUFFER_COUNT;
 	req.memory = V4L2_MEMORY_DMABUF;
 	req.type = buf_type;
 	ret = ioctl(video_fd, VIDIOC_REQBUFS, &req);
 	if (ret) {
-		printf("failed to reqbuf %d \n", ret);
+		printf("failed to eeqbuf %d \n", ret);
 		goto done;
 	}
 	printf("create gem, dma handler and get virtual address \n");
