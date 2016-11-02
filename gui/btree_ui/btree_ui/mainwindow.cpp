@@ -100,19 +100,19 @@ bool MainWindow::loadFile(unsigned char *file)
     //ui->label->show();
     ui->label->repaint();
 
-    qDebug() << "finished updated - " << QDateTime::currentDateTime();
+    //qDebug() << "finished updated - " << QDateTime::currentDateTime();
     return true;
 }
 
 void MainWindow::imageUpdate(unsigned char* rgbbuf)
 {
-    qDebug() << "Update - " << QDateTime::currentDateTime();
+    //qDebug() << "Update - " << QDateTime::currentDateTime();
     if(!rgbbuf)
         printf("failed to get rgb buf \n");
     else
         loadFile(rgbbuf);
     free(rgbbuf);
-    printf("----- end image update function \n");
+    //printf("----- end image update function \n");
 }
 
 void MainWindow::createActions()

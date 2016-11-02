@@ -351,6 +351,25 @@ int stopDevice(struct device *dev)
     }
     return ret;
 }
+int setCropImage(struct device *dev, int x, int y, int w, int h)
+{
+    int ret = -1;
+    struct v4l2_crop crop;
+
+    printf("set crop image \n");
+    if (!dev)
+        return ret;
+    crop.type = dev->buf_type;
+    crop.c.width = w;
+    crop.c.height = h;
+    crop.c.left = x;
+    crop.c.top = y;
+    ret = ioctl(dev->video_fd, VIDIOC_S_CROP, &crop);
+    if (ret) {
+        printf("failed to set image crop : %d\n", ret);
+    }
+    return ret;
+}
 
 int dqbuf(struct device *dev)
 {
@@ -436,6 +455,7 @@ int initDevice(struct device* dev,
     dev->buf_type = buf_type;
     dev->format = format;
 
+    setCropImage(dev, 0, 0, w, h);
     printf("request bufs : 0x%x \n", VIDIOC_REQBUFS);
     bzero(&req, sizeof(req));
     req.count = MAX_BUFFER_COUNT;
