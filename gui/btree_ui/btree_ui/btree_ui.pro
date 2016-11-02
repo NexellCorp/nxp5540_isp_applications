@@ -16,9 +16,11 @@ CONFIG += console \
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-        deviceioctl.c
+        deviceioctl.c \
+        readthread.cpp
 
 HEADERS  += mainwindow.h \
-        deviceioctl.h
+        deviceioctl.h \
+        readthread.h
 
 FORMS    += mainwindow.ui

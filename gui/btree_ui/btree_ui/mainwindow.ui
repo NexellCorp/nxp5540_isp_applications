@@ -16,14 +16,31 @@
   <property name="windowTitle">
    <string>Btree Application</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="label">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>2</y>
+      <width>1600</width>
+      <height>1200</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>1620</width>
-     <height>27</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -31,7 +48,9 @@
      <string>File</string>
     </property>
     <addaction name="actionOpen"/>
-    <addaction name="actionClose"/>
+    <addaction name="actionClose_2"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuStream">
     <property name="title">
@@ -49,11 +68,6 @@
     <string>Open</string>
    </property>
   </action>
-  <action name="actionClose">
-   <property name="text">
-    <string>Close</string>
-   </property>
-  </action>
   <action name="actionStream_On">
    <property name="text">
     <string>Stream On</string>
@@ -62,6 +76,16 @@
   <action name="actionStream_Off">
    <property name="text">
     <string>Stream Off</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionClose_2">
+   <property name="text">
+    <string>Close</string>
    </property>
   </action>
  </widget>

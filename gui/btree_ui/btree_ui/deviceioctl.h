@@ -37,6 +37,16 @@ int initDevice(struct device* dev,
 int startDevice(struct device* dev);
 int stopDevice(struct device* dev);
 
+int dqbuf(struct device *dev);
+int qbuf(struct device *dev);
+
+int saveBMP (unsigned int width, unsigned int height,
+             unsigned char *srcbuf);
+
+unsigned char* convertRGB(unsigned int width,
+                          unsigned int height,
+                          unsigned char *srcbuf);
+
 #ifdef __cplusplus
 }
 #endif

@@ -150,7 +150,7 @@ static void initConvMatrix(void)
     }
 }
 
-static int saveBMP
+int saveBMP
 (uint32_t width, uint32_t height, uint8_t *srcbuf)
 {
     uint32_t rgb_size, rgb_header = 0;
@@ -159,6 +159,7 @@ static int saveBMP
     initConvMatrix();
     printf("create a file to copy the image data \n");
     fd = creat("./resultImage.bmp", 0644);
+    //fd = open("./resultImage.bmp",O_RDWR);
     if (fd < 0) {
         printf("fail to create a file \n");
         return -ENODEV;
@@ -172,12 +173,14 @@ static int saveBMP
         close(fd);
         return -1;
     }
+
     printf("rgbbuf = 0x%x , header size = %d, data size = %d\n", rgbbuf, rgb_header, rgb_size);
     /* input header information for RGB */
     printf("input header information for RGB\n");
     MakeRGBHeader(fd, width, height);
     printf("converting yuv data to rgb data \n");
     ConvDib(width, height, srcbuf, rgbbuf);
+
     if (write(fd,rgbbuf, rgb_size) < 0) {
         printf("fail to write the data into the file \n");
         if(rgbbuf)
@@ -192,8 +195,27 @@ static int saveBMP
         free(rgbbuf);
     if(fd)
         close(fd);
-
     return 0;
+}
+
+uint8_t* convertRGB
+(uint32_t width, uint32_t height, uint8_t *srcbuf)
+{
+    uint32_t rgb_size = 0;
+    uint8_t *rgbbuf;
+
+    rgb_size = CAL_RGBSIZE(width, height);
+    rgbbuf = (unsigned char*)malloc(rgb_size);
+    if (!rgbbuf) {
+        printf("fail to malloc for rgb data \n");
+        return -1;
+    }
+    initConvMatrix();
+
+    printf("converting yuv data to rgb data \n");
+    ConvDib(width, height, srcbuf, rgbbuf);
+
+    return rgbbuf;
 }
 
 static int drm_ioctl(int drm_fd, unsigned long request, void *arg)
@@ -269,14 +291,16 @@ static int v4l2_qbuf(int fd, int index, uint32_t buf_type, uint32_t mem_type,
         int dma_fd, int length)
 {
     struct v4l2_buffer v4l2_buf;
+    struct v4l2_plane planes[3];
 
     bzero(&v4l2_buf, sizeof(v4l2_buf));
-    v4l2_buf.m.fd = dma_fd;
+    v4l2_buf.length = 1; /* the number of plane for multi plane*/
     v4l2_buf.type = buf_type;
     v4l2_buf.memory = mem_type;
     v4l2_buf.index = index;
-    v4l2_buf.length = length;
-
+    v4l2_buf.m.planes = planes;
+    v4l2_buf.m.planes[0].m.fd = dma_fd;
+    v4l2_buf.m.planes[0].length = length;
     return ioctl(fd, VIDIOC_QBUF, &v4l2_buf);
 }
 
@@ -284,10 +308,13 @@ static int v4l2_dqbuf(int fd, uint32_t buf_type, uint32_t mem_type, int *index)
 {
     int ret;
     struct v4l2_buffer v4l2_buf;
+    struct v4l2_plane planes[3];
 
     bzero(&v4l2_buf, sizeof(v4l2_buf));
     v4l2_buf.type = buf_type;
     v4l2_buf.memory = mem_type;
+    v4l2_buf.length = 1;
+    v4l2_buf.m.planes = planes;
 
     ret = ioctl(fd, VIDIOC_DQBUF, &v4l2_buf);
     if (ret)
@@ -302,6 +329,8 @@ int startDevice(struct device *dev)
     int ret = -1;
 
     printf("startDevice \n");
+    if (!dev)
+        return ret;
     ret = ioctl(dev->video_fd, VIDIOC_STREAMON, &dev->buf_type);
     if (ret) {
         printf("failed to start device : %d\n", ret);
@@ -314,17 +343,53 @@ int stopDevice(struct device *dev)
     int ret = -1;
 
     printf("stop Device \n");
-    ioctl(dev->video_fd, VIDIOC_STREAMOFF, &dev->buf_type);
+    if (!dev)
+        return ret;
+    ret = ioctl(dev->video_fd, VIDIOC_STREAMOFF, &dev->buf_type);
     if (ret) {
         printf("failed to stop device : %d\n", ret);
     }
     return ret;
 }
 
-int readthread(struct device *dev)
+int dqbuf(struct device *dev)
 {
     int ret = -1;
 
+    printf("dqbuf \n");
+
+    if (!dev)
+        return ret;
+    ret = v4l2_dqbuf(dev->video_fd, dev->buf_type, V4L2_MEMORY_DMABUF,
+                     &dev->dq_index);
+    if (ret) {
+        printf("failed to dqbuf \n");
+    }
+    printf("dqbuf index %d \n", dev->dq_index);
+    return ret;
+}
+
+int qbuf(struct device *dev)
+{
+    int ret = -1;
+    printf("qbuf index =  %d \n", dev->dq_index);
+    ret = v4l2_qbuf(dev->video_fd, dev->dq_index, dev->buf_type,
+                    V4L2_MEMORY_DMABUF, dev->dma_fds[dev->dq_index],
+                    dev->size);
+    if (ret) {
+        printf("failed to qbuf index %d \n", dev->dq_index);
+    }
+    return ret;
+}
+
+int readData(struct device *dev)
+{
+    int ret = -1;
+
+    printf("readData\n");
+
+    if (!dev)
+        return ret;
     ret = v4l2_dqbuf(dev->video_fd, dev->buf_type, V4L2_MEMORY_DMABUF,
                      &dev->dq_index);
     if (ret) {
@@ -340,6 +405,7 @@ int readthread(struct device *dev)
     if (ret) {
         printf("failed to qbuf index %d \n", dev->dq_index);
     }
+
     return ret;
 }
 
@@ -358,22 +424,21 @@ int initDevice(struct device* dev,
     printf("set format : 0x%x \n", VIDIOC_S_FMT);
     bzero(&v4l2_fmt, sizeof(v4l2_fmt));
     v4l2_fmt.type = buf_type;
-    v4l2_fmt.fmt.pix.width = w;
-    v4l2_fmt.fmt.pix.height = h;
-    v4l2_fmt.fmt.pix.pixelformat = format;
+    v4l2_fmt.fmt.pix_mp.width = w;
+    v4l2_fmt.fmt.pix_mp.height = h;
+    v4l2_fmt.fmt.pix_mp.pixelformat = format;
+    v4l2_fmt.fmt.pix_mp.field = V4L2_FIELD_NONE;
     ret = ioctl(video_fd, VIDIOC_S_FMT, &v4l2_fmt);
     if (ret) {
         printf("failed to set format %d \n", ret);
         goto done;
     }
-    dev->width = w;
-    dev->height = h;
     dev->buf_type = buf_type;
     dev->format = format;
 
     printf("request bufs : 0x%x \n", VIDIOC_REQBUFS);
     bzero(&req, sizeof(req));
-    req.count = 10;
+    req.count = MAX_BUFFER_COUNT;
     req.memory = V4L2_MEMORY_DMABUF;
     req.type = buf_type;
     ret = ioctl(video_fd, VIDIOC_REQBUFS, &req);
@@ -450,8 +515,8 @@ static void initValue(struct device *dev)
     dev->dq_index = 0;
     dev->format = 0;
     dev->buf_type = 0;
-    dev->width = 0;
-    dev->height = 0;
+    dev->width = 800;
+    dev->height = 600;
     dev->size = 0;
 }
 
@@ -485,8 +550,8 @@ struct device* openDevice(void)
     dev->video_fd = video_fd;
     dev->dq_index = 0;
 
-    ret = initDevice(dev, 1600, 1200,
-                     V4L2_BUF_TYPE_VIDEO_CAPTURE, V4L2_PIX_FMT_UYVY);
+    ret = initDevice(dev, dev->width,  dev->height,
+                     V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE, V4L2_PIX_FMT_UYVY);
     if(ret < 0)
         goto done;
 
