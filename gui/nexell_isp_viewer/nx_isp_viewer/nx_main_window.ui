@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NxMainWindow</class>
+ <widget class="QMainWindow" name="NxMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>997</width>
+    <height>671</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Nexell ISP Viewer</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="label">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>721</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>997</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="mouseTracking">
+    <bool>false</bool>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::CustomContextMenu</enum>
+   </property>
+   <property name="toolTip">
+    <string notr="true"/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>false</bool>
+   </property>
+   <widget class="QMenu" name="menuNexell_ISP_Viewer">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen_Device"/>
+    <addaction name="actionClose_Device"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave_Image"/>
+    <addaction name="separator"/>
+    <addaction name="actionLoad_Sensor_Reg_Set"/>
+    <addaction name="actionLoad_ISP_Reg_Set"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave_Current_Reg_Set"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionPlay"/>
+    <addaction name="actionStop"/>
+   </widget>
+   <widget class="QMenu" name="menuRegister">
+    <property name="title">
+     <string>RegisterControl</string>
+    </property>
+    <addaction name="actionImage_Config"/>
+    <addaction name="actionSensor_Control"/>
+    <addaction name="actionISP_Reg_Control"/>
+   </widget>
+   <widget class="QMenu" name="menuISP">
+    <property name="title">
+     <string>ISP</string>
+    </property>
+    <addaction name="actionBlock_On_Off"/>
+   </widget>
+   <widget class="QMenu" name="menuEffect">
+    <property name="title">
+     <string>Effect</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionGrey_Mode_On_Off"/>
+    <addaction name="actionAqua_Mode_On_Off"/>
+    <addaction name="actionSepia_Mode_On_Off"/>
+    <addaction name="actionSketch_Mode_On_Off"/>
+    <addaction name="actionNegative_Mode_On_Off"/>
+    <addaction name="actionDefocusing_Mode_On_Off"/>
+   </widget>
+   <addaction name="menuNexell_ISP_Viewer"/>
+   <addaction name="menuView"/>
+   <addaction name="menuRegister"/>
+   <addaction name="menuEffect"/>
+   <addaction name="menuISP"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionOpen_Device">
+   <property name="text">
+    <string>Open Device</string>
+   </property>
+  </action>
+  <action name="actionClose_Device">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Close Device</string>
+   </property>
+  </action>
+  <action name="actionSave_Image">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save Image</string>
+   </property>
+  </action>
+  <action name="actionLoad_Sensor_Reg_Set">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Load Sensor Reg Set</string>
+   </property>
+  </action>
+  <action name="actionLoad_ISP_Reg_Set">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Load ISP Reg Set</string>
+   </property>
+  </action>
+  <action name="actionSave_Current_Reg_Set">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save Current Reg Set</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionPlay">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Play</string>
+   </property>
+  </action>
+  <action name="actionStop">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Stop</string>
+   </property>
+  </action>
+  <action name="actionSensor_Control">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Sensor Reg Control</string>
+   </property>
+  </action>
+  <action name="actionISP_Reg_Control">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>ISP Reg Control</string>
+   </property>
+  </action>
+  <action name="actionBlock_On_Off">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Block On/Off</string>
+   </property>
+  </action>
+  <action name="actionAqua_Mode_On_Off">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Aqua Mode On/Off</string>
+   </property>
+  </action>
+  <action name="actionSketch_Mode_On_Off">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Sketch Mode On/Off</string>
+   </property>
+  </action>
+  <action name="actionSepia_Mode_On_Off">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Sepia Mode On/Off</string>
+   </property>
+  </action>
+  <action name="actionNegative_Mode_On_Off">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Negative Mode On/Off</string>
+   </property>
+  </action>
+  <action name="actionDefocusing_Mode_On_Off">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Defocusing Mode On/Off</string>
+   </property>
+  </action>
+  <action name="actionImage_Config">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Image Config</string>
+   </property>
+  </action>
+  <action name="actionGrey_Mode_On_Off">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Grey Mode On/Off</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,1645 @@
+//=======================================================================================
+//=== Deblank/Window  (1Page 0x000~0x0FF)
+//=======================================================================================
+btp0x00000001
+bta0x000000a0
+btd0x00000083	//reg_deblank_ctl                regmap[0x1][0x0a0]    //0x00000080
+btd0x0640FFFF	//reg_deblank_vsync              regmap[0x1][0x0a4]    //0x0001FFFF
+btd0x00004074	//reg_deblank_dummy_ctl          regmap[0x1][0x0a8]    //0x00004078
+//=======================================================================================
+//=== Triauto  (2Page 0x200~0x2FF)
+//=======================================================================================
+btp0x00000002
+bta0x00000200
+btd0x000C0141   //reg_triauto_ctl                regmap[0x2][0x200]    //0x000000000
+btd0x16152A2C
+btd0xC0804020
+btd0x124421E0
+//=======================================================================================
+//=== antiflk_ctl (1Page )
+//=======================================================================================
+btp0x00000001
+bta0x00000184
+btd0x04B00190   //reg_antiflk_cfg1                 regmap[0x1][0x184]    //0x000000000
+btd0x0000002A   //reg_antiflk_cfg2                 regmap[0x1][0x188]    //0x000000000
+btd0x00430810   //reg_antiflk_cfg3                 regmap[0x1][0x18C]    //0x000000000
+//=======================================================================================
+//=== AF config (1Page )
+//=======================================================================================
+btp0x00000001
+bta0x0000010C
+btd0x0190012C   //reg_af_win1_xy_start             regmap[0x1][0x10C]    //0x000000000
+btd0x01F40177
+btd0x02BC012C
+btd0x03200177
+btd0x03E8012C
+btd0x044C0177
+btd0x0190020D
+btd0x01F40258
+btd0x02BC020D
+btd0x03200258
+btd0x03E8020D
+btd0x044C0258
+btd0x019002EE
+btd0x01F40339
+btd0x02BC02EE
+btd0x03200339
+btd0x03E802EE
+btd0x044C0339
+btd0x00000001
+btd0x04B00190
+btd0x0000002A
+btd0x00430810
+//=======================================================================================
+//=== Bayer/RGB  Bit Extraction  (3Page 0x200~0x2FF)
+//=======================================================================================
+btp0x00000003
+bta0x00000200
+btd0x00000000	//reg_byrext_ctl                 regmap[0x3][0x200]    //0x00000001
+btd0x00000000	//reg_rgbext_ctl                 regmap[0x3][0x204]    //0x00000001
+
+//=======================================================================================
+//=== Bayer Curve Gain   (3 Page 0x300~0x3FF)
+//=======================================================================================
+btp0x00000003
+bta0x00000300
+btd0x00000000	//1	//regmap[0x3][0x300]     reg_byrcrv_ctl  
+btd0x00000000   //00000000   //00000000   //00000000   //00000000   //00000000   //00000000   //00000000   //regmap[0x3][0x304]     reg_byrcrvRGB_0 
+btd0x00401004   //00401004   //00401004   //00401004   //00401004   //00401004   //00200802   //00401004   //regmap[0x3][0x308]     reg_byrcrvRGB_1 
+btd0x00902409   //00802008   //00802008   //00802008   //00802008   //00802008   //00501405   //00802008   //regmap[0x3][0x30C]     reg_byrcrvRGB_2 
+btd0x00f03c0f   //00c0300c   //00c0300c   //00c0300c   //00c0300c   //00c0300c   //00902409   //00c0300c   //regmap[0x3][0x310]     reg_byrcrvRGB_3 
+btd0x01304c13   //01104411   //01104411   //01104411   //01104411   //01104411   //00d0340d   //01104411   //regmap[0x3][0x314]     reg_byrcrvRGB_4 
+btd0x01d0741d   //01c0701c   //01c0701c   //01c0701c   //01c0701c   //01c0701c   //01605816   //01c0701c   //regmap[0x3][0x318]     reg_byrcrvRGB_5 
+btd0x02709c27   //02709c27   //02709c27   //02709c27   //02709c27   //0280a028   //02008020   //0280a028   //regmap[0x3][0x31C]     reg_byrcrvRGB_6 
+btd0x0350d435   //0330cc33   //0330cc33   //0330cc33   //0330cc33   //0340d034   //02a0a82a   //0340d034   //regmap[0x3][0x320]     reg_byrcrvRGB_7 
+btd0x03e0f83e   //04010040   //04010040   //04010040   //04010040   //04010040   //0350d435   //04010040   //regmap[0x3][0x324]     reg_byrcrvRGB_8 
+btd0x04c1304c   //04d1344d   //04d1344d   //04d1344d   //04d1344d   //04c1304c   //04010040   //04c1304c   //regmap[0x3][0x328]     reg_byrcrvRGB_9 
+btd0x05816058   //05a1685a   //05a1685a   //05a1685a   //05a1685a   //05816058   //04c1304c   //05816058   //regmap[0x3][0x32C]     reg_byrcrvRGB_10
+btd0x0691a469   //0681a068   //0681a068   //0681a068   //0681a068   //06419064   //05816058   //06419064   //regmap[0x3][0x330]     reg_byrcrvRGB_11
+btd0x0711c471   //0781e078   //0781e078   //0781e078   //0781e078   //0701c070   //06519465   //0701c070   //regmap[0x3][0x334]     reg_byrcrvRGB_12
+btd0x07c1f07c   //08621886   //08621886   //08621886   //08621886   //07c1f07c   //0721c872   //07c1f07c   //regmap[0x3][0x338]     reg_byrcrvRGB_13
+btd0x08421084   //09224892   //09224892   //09224892   //09224892   //08822088   //08020080   //08822088   //regmap[0x3][0x33C]     reg_byrcrvRGB_14
+btd0x08e2388e   //09e2789e   //09e2789e   //09e2789e   //09e2789e   //09425094   //09024090   //09425094   //regmap[0x3][0x340]     reg_byrcrvRGB_15
+btd0x09625896   //0a92a4a9   //0a92a4a9   //0a92a4a9   //0a92a4a9   //0a0280a0   //09e2789e   //0a0280a0   //regmap[0x3][0x344]     reg_byrcrvRGB_16
+btd0x0a0280a0   //0b42d0b4   //0b42d0b4   //0b42d0b4   //0b42d0b4   //0ac2b0ac   //0ac2b0ac   //0ac2b0ac   //regmap[0x3][0x348]     reg_byrcrvRGB_17
+btd0x0a92a4a9   //0be2f8be   //0be2f8be   //0be2f8be   //0be2f8be   //0b82e0b8   //0b92e4b9   //0b82e0b8   //regmap[0x3][0x34C]     reg_byrcrvRGB_18
+btd0x0b22c8b2   //0c8320c8   //0c8320c8   //0c8320c8   //0c8320c8   //0c4310c4   //0c6318c6   //0c4310c4   //regmap[0x3][0x350]     reg_byrcrvRGB_19
+btd0x0ba2e8ba   //0d1344d1   //0d1344d1   //0d1344d1   //0d1344d1   //0ce338ce   //0d2348d2   //0ce338ce   //regmap[0x3][0x354]     reg_byrcrvRGB_20
+btd0x0cc330cc   //0e338ce3   //0e338ce3   //0e338ce3   //0e338ce3   //0e2388e2   //0e83a0e8   //0e2388e2   //regmap[0x3][0x358]     reg_byrcrvRGB_21
+btd0x0dc370dc   //0f53d4f5   //0f53d4f5   //0f53d4f5   //0f53d4f5   //0f43d0f4   //0fa3e8fa   //0f43d0f4   //regmap[0x3][0x35C]     reg_byrcrvRGB_22
+btd0x0ee3b8ee   //10541505   //10641906   //10641906   //10541505   //10541505   //10c4310c   //10541505   //regmap[0x3][0x360]     reg_byrcrvRGB_23
+btd0x10e4390e   //12649926   //12649926   //12649926   //12649926   //12649926   //1284a128   //12649926   //regmap[0x3][0x364]     reg_byrcrvRGB_24
+btd0x12e4b92e   //14451144   //14451144   //14451144   //14451144   //14451144   //14250942   //14451144   //regmap[0x3][0x368]     reg_byrcrvRGB_25
+btd0x14e5394e   //16058160   //16058160   //16058160   //16058160   //16058160   //15c5715c   //16058160   //regmap[0x3][0x36C]     reg_byrcrvRGB_26
+btd0x16c5b16c   //17a5e97a   //17c5f17c   //17c5f17c   //17a5e97a   //17a5e97a   //1755d575   //17a5e97a   //regmap[0x3][0x370]     reg_byrcrvRGB_27
+btd0x18661986   //19465194   //19866198   //19866198   //19465194   //19465194   //18c6318c   //19465194	//regmap[0x3][0x374]     reg_byrcrvRGB_28
+btd0x1a2689a2   //1ac6b1ac   //1b26c9b2   //1b26c9b2   //1ac6b1ac   //1ac6b1ac   //1a2689a2   //1ac6b1ac   //regmap[0x3][0x378]     reg_byrcrvRGB_29
+btd0x1bc6f1bc   //1c4711c4   //1cc731cc   //1cc731cc   //1c4711c4   //1c4711c4   //1b86e1b8   //1c4711c4   //regmap[0x3][0x37C]     reg_byrcrvRGB_30
+btd0x1d2749d2   //1da769da   //1e4791e4   //1e4791e4   //1da769da   //1da769da   //1cc731cc   //1da769da   //regmap[0x3][0x380]     reg_byrcrvRGB_31
+btd0x1e87a1e8   //1f07c1f0   //1fc7f1fc   //1fc7f1fc   //1f07c1f0   //1f07c1f0   //1e0781e0   //1f07c1f0   //regmap[0x3][0x384]     reg_byrcrvRGB_32
+btd0x1fc7f1fc   //20481204   //21485214   //21485214   //20481204   //20481204   //1f47d1f4   //20481204   //regmap[0x3][0x388]     reg_byrcrvRGB_33
+btd0x22489224   //22c8b22c   //24491244   //24090240   //22c8b22c   //22c8b22c   //21c8721c   //22c8b22c   //regmap[0x3][0x38C]     reg_byrcrvRGB_34
+btd0x24892248   //25094250   //26c9b26c   //26699a66   //25094250   //25094250   //24290a42   //25094250   //regmap[0x3][0x390]     reg_byrcrvRGB_35
+btd0x26c9b26c   //2709c270   //292a4a92   //288a2288   //2709c270   //2709c270   //26499264   //2709c270   //regmap[0x3][0x394]     reg_byrcrvRGB_36
+btd0x28ca328c   //290a4290   //2b8ae2b8   //2a4a92a4   //290a4290   //290a4290   //284a1284   //290a4290   //regmap[0x3][0x398]     reg_byrcrvRGB_37
+btd0x2acab2ac   //2acab2ac   //2dcb72dc   //2beafabe   //2acab2ac   //2b0ac2b0   //2a2a8aa2   //2b0ac2b0   //regmap[0x3][0x39C]     reg_byrcrvRGB_38
+btd0x2c8b22c8   //2c8b22c8   //2fcbf2fc   //2d5b56d5   //2c8b22c8   //2ccb32cc   //2beafabe   //2ccb32cc   //regmap[0x3][0x3A0]     reg_byrcrvRGB_39
+btd0x2deb7ade   //2e0b82e0   //318c6318   //2ecbb2ec   //2e0b82e0   //2e8ba2e8   //2d8b62d8   //2e8ba2e8   //regmap[0x3][0x3A4]     reg_byrcrvRGB_40
+btd0x2f4bd2f4   //2f8be2f8   //330cc330   //300c0300   //2f8be2f8   //300c0300   //2edbb6ed   //300c0300   //regmap[0x3][0x3A8]     reg_byrcrvRGB_41
+btd0x31cc731c   //320c8320   //358d6358   //328ca328   //320c8320   //32ccb32c   //314c5314   //32ccb32c   //regmap[0x3][0x3AC]     reg_byrcrvRGB_42
+btd0x340d0340   //348d2348   //378de378   //350d4350   //348d2348   //354d5354   //339ce739   //354d5354   //regmap[0x3][0x3B0]     reg_byrcrvRGB_43
+btd0x360d8360   //368da368   //394e5394   //374dd374   //368da368   //378de378   //35cd735c   //378de378   //regmap[0x3][0x3B4]     reg_byrcrvRGB_44
+btd0x380e0380   //388e2388   //3aceb3ac   //394e5394   //388e2388   //398e6398   //37edfb7e   //398e6398   //regmap[0x3][0x3B8]     reg_byrcrvRGB_45
+btd0x3a0e83a0   //3a8ea3a8   //3c0f03c0   //3b0ec3b0   //3a8ea3a8   //3b4ed3b4   //3a0e83a0   //3b4ed3b4   //regmap[0x3][0x3BC]     reg_byrcrvRGB_46
+btd0x3c0f03c0   //3c4f13c4   //3d4f53d4   //3ccf33cc   //3c4f13c4   //3ccf33cc   //3c0f03c0   //3ccf33cc   //regmap[0x3][0x3C0]     reg_byrcrvRGB_47
+btd0x3fffffff   //3fffffff   //3fffffff   //3fffffff   //3fffffff   //3fffffff   //3fffffff   //3fffffff   //regmap[0x3][0x3C4]     reg_byrcrvRGB_48
+//=======================================================================================
+//=== RGB Gamma Correction    ( Page 3 0x400 ~ 0x4FF)
+//=======================================================================================
+btp0x00000003
+bta0x00000400
+btd0x00000003	//reg_rgb_gamma_ctl               regmap[0x3][0x400]  // 0x00000001
+btd0x00000000   //00000000   //00000000   //00000000   //reg_rgb_gamma_0                 regmap[0x3][0x404]  // 0x00100401
+btd0x00401004   //00401004   //00200802   //00100401   //reg_rgb_gamma_1                 regmap[0x3][0x408]  // 0x00200802
+btd0x00902409   //00902409   //00401004   //00300c03   //reg_rgb_gamma_2                 regmap[0x3][0x40C]  // 0x00501405
+btd0x00e0380e   //00e0380e   //00601806   //00601806   //reg_rgb_gamma_3                 regmap[0x3][0x410]  // 0x00a0280a
+btd0x01405014   //01405014   //00902409   //00902409   //reg_rgb_gamma_4                 regmap[0x3][0x414]  // 0x01004010
+btd0x02008020   //02008020   //01004010   //00f03c0f   //reg_rgb_gamma_5                 regmap[0x3][0x418]  // 0x01806018
+btd0x02c0b02c   //02c0b02c   //01806018   //01405014   //reg_rgb_gamma_6                 regmap[0x3][0x41C]  // 0x02208822
+btd0x0380e038   //0380e038   //02008020   //01c0701c   //reg_rgb_gamma_7                 regmap[0x3][0x420]  // 0x02c0b02c
+btd0x04411044   //04411044   //0280a028   //0280a028   //reg_rgb_gamma_8                 regmap[0x3][0x424]  // 0x0360d836
+btd0x05014050   //05014050   //0300c030   //0340d034   //reg_rgb_gamma_9                 regmap[0x3][0x428]  // 0x04010040
+btd0x05c1705c   //05c1705c   //0390e439   //04010040   //reg_rgb_gamma_10                regmap[0x3][0x42C]  // 0x04a1284a
+btd0x0681a068   //0681a068   //04210842   //04c1304c   //reg_rgb_gamma_11                regmap[0x3][0x430]  // 0x05415054
+btd0x0741d074   //0741d074   //04c1304c   //05816058   //reg_rgb_gamma_12                regmap[0x3][0x434]  // 0x05e1785e
+btd0x08020080   //08020080   //05615856   //06419064   //reg_rgb_gamma_13                regmap[0x3][0x438]  // 0x0681a068
+btd0x08c2308c   //08c2308c   //06118461   //0741d074   //reg_rgb_gamma_14                regmap[0x3][0x43C]  // 0x0721c872
+btd0x09826098   //09826098   //06c1b06c   //08421084   //reg_rgb_gamma_15                regmap[0x3][0x440]  // 0x07c1f07c
+btd0x0a4290a4   //0a4290a4   //0781e078   //09425094   //reg_rgb_gamma_16                regmap[0x3][0x444]  // 0x08621886
+btd0x0b02c0b0   //0b02c0b0   //08421084   //0a4290a4   //reg_rgb_gamma_17                regmap[0x3][0x448]  // 0x09024090
+btd0x0bc2f0bc   //0bc2f0bc   //09024090   //0b22c8b2   //reg_rgb_gamma_18                regmap[0x3][0x44C]  // 0x09a2689a
+btd0x0c8320c8   //0c8320c8   //09c2709c   //0c0300c0   //reg_rgb_gamma_19                regmap[0x3][0x450]  // 0x0a4290a4
+btd0x0d4350d4   //0d4350d4   //0a82a0a8   //0ce338ce   //reg_rgb_gamma_20                regmap[0x3][0x454]  // 0x0b32ccb3
+btd0x0e83a0e8   //0e83a0e8   //0c0300c0   //0e93a4e9   //reg_rgb_gamma_21                regmap[0x3][0x458]  // 0x0c2308c2
+btd0x0fc3f0fc   //0fc3f0fc   //0d9364d9   //10441104   //reg_rgb_gamma_22                regmap[0x3][0x45C]  // 0x0d1344d1
+btd0x11044110   //11044110   //0f23c8f2   //11c4711c   //reg_rgb_gamma_23                regmap[0x3][0x460]  // 0x0e5394e5
+btd0x1354d535   //1354d535   //12649926   //14852148   //reg_rgb_gamma_24                regmap[0x3][0x464]  // 0x0fe3f8fe
+btd0x15856158   //15856158   //15455154   //16e5b96e   //reg_rgb_gamma_25                regmap[0x3][0x468]  // 0x11a4691a
+btd0x1765d976   //1765d976   //18060180   //19264992   //reg_rgb_gamma_26                regmap[0x3][0x46C]  // 0x13d4f53d
+btd0x19465194   //19465194   //1a4691a4   //1b46d1b4   //reg_rgb_gamma_27                regmap[0x3][0x470]  // 0x16559565
+btd0x1b06c1b0   //1b06c1b0   //1c4711c4   //1d4751d4   //reg_rgb_gamma_28                regmap[0x3][0x474]  // 0x18d6358d
+btd0x1c9725c9   //1c9725c9   //1e2789e2   //1f47d1f4   //reg_rgb_gamma_29                regmap[0x3][0x478]  // 0x1b56d5b5
+btd0x1e0781e0   //1e0781e0   //20080200   //21284a12   //reg_rgb_gamma_30                regmap[0x3][0x47C]  // 0x1dd775dd
+btd0x1f67d9f6   //1f67d9f6   //21d8761d   //22c8b22c   //reg_rgb_gamma_31                regmap[0x3][0x480]  // 0x1fd7f5fd
+btd0x20c8320c   //20c8320c   //2388e238   //24491244   //reg_rgb_gamma_32                regmap[0x3][0x484]  // 0x21c8721c
+btd0x22088220   //22088220   //25094250   //25a96a5a   //reg_rgb_gamma_33                regmap[0x3][0x488]  // 0x23a8ea3a
+btd0x24691a46   //24691a46   //2789e278   //280a0280   //reg_rgb_gamma_34                regmap[0x3][0x48C]  // 0x25896258
+btd0x26a9aa6a   //26a9aa6a   //298a6298   //2a2a8aa2   //reg_rgb_gamma_35                regmap[0x3][0x490]  // 0x2769da76
+btd0x28ca328c   //28ca328c   //2b4ad2b4   //2c4b12c4   //reg_rgb_gamma_36                regmap[0x3][0x494]  // 0x294a5294
+btd0x2acab2ac   //2acab2ac   //2ceb3ace   //2e0b82e0   //reg_rgb_gamma_37                regmap[0x3][0x498]  // 0x2a8aa2a8
+btd0x2c8b22c8   //2c8b22c8   //2e8ba2e8   //2fcbf2fc   //reg_rgb_gamma_38                regmap[0x3][0x49C]  // 0x2bcaf2bc
+btd0x2e0b82e0   //2e0b82e0   //301c0701   //316c5b16   //reg_rgb_gamma_39                regmap[0x3][0x4A0]  // 0x2d0b42d0
+btd0x2f4bd2f4   //2f4bd2f4   //319c6719   //330cc330   //reg_rgb_gamma_40                regmap[0x3][0x4A4]  // 0x2e4b92e4
+btd0x308c2308   //308c2308   //32ccb32c   //348d2348   //reg_rgb_gamma_41                regmap[0x3][0x4A8]  // 0x302c0b02
+btd0x32ccb32c   //330cc330   //34cd334c   //374dd374   //reg_rgb_gamma_42                regmap[0x3][0x4AC]  // 0x320c8320
+btd0x350d4350   //358d6358   //368da368   //394e5394   //reg_rgb_gamma_43                regmap[0x3][0x4B0]  // 0x33ecfb3e
+btd0x370dc370   //37cdf37c   //384e1384   //3b0ec3b0   //reg_rgb_gamma_44                regmap[0x3][0x4B4]  // 0x35cd735c
+btd0x38ce338c   //398e6398   //3a0e83a0   //3c4f13c4   //reg_rgb_gamma_45                regmap[0x3][0x4B8]  // 0x37adeb7a
+btd0x3a8ea3a8   //3b2ecbb2   //3b8ee3b8   //3d4f53d4   //reg_rgb_gamma_46                regmap[0x3][0x4BC]  // 0x398e6398
+btd0x3c4f13c4   //3ccf33cc   //3d0f43d0   //3e0f83e0   //reg_rgb_gamma_47                regmap[0x3][0x4C0]  // 0x3c0f03c0
+btd0x3fffffff   //3fffffff   //3fffffff   //3fffffff   //reg_rgb_gamma_48                regmap[0x3][0x4C4]  // 0x3fffffff
+
+//=======================================================================================
+//=== RGB Contrast Correction  ( 3Page 0x500 ~ 0x5FF )
+//=======================================================================================
+btp0x00000003
+bta0x00000500
+btd0x00000066	//reg_rgb_cont_cor_ctl           regmap[0x3][0x500]  // 0x00000007
+btd0x0FA20200	//reg_rgb_cont_high_ctl          regmap[0x3][0x504]  // 0x0FA20200
+btd0x08001000	//reg_rgb_cont_hlc_rg            regmap[0x3][0x508]  // 0x08001000
+btd0x0FFB0800	//reg_rgb_cont_hlc_b             regmap[0x3][0x50C]  // 0x0FFB0800
+btd0x08000300	//reg_rgb_auto_maxmin            regmap[0x3][0x510]  // 0x08000300
+btd0x04000400	//reg_rgb_cont_weight_hl         regmap[0x3][0x514]  // 0x04000400
+btd0x00000400	//reg_rgb_cont_weight_m          regmap[0x3][0x518]  // 0x00000400
+btd0x90807060	//reg_rgb_cont_mix_rate3210      regmap[0x3][0x51C]  // 0x90807060
+btd0xD0C0B0A0	//reg_rgb_cont_mix_rate7654      regmap[0x3][0x520]  // 0xD0C0B0A0
+btd0x000000E0	//reg_rgb_cont_mix_rate8         regmap[0x3][0x524]  // 0x000000E0
+btd0x75787A7D	//reg_rgb_cont_LowLmt3210        regmap[0x3][0x528]  // 0x75787A7D
+btd0x70717374	//reg_rgb_cont_LowLmt7654        regmap[0x3][0x52C]  // 0x70717374
+btd0x9D9B9896	//reg_rgb_cont_HigLmt3210        regmap[0x3][0x530]  // 0x9D9B9896
+btd0x989B9DA0	//reg_rgb_cont_HigLmt7654        regmap[0x3][0x534]  // 0x989B9DA0
+
+btd0x00800080	//regmap[0x3][0x538]  // 0x75787A7D
+btd0x00800080	//regmap[0x3][0x53C]  // 0x70717374
+btd0x00800080	//regmap[0x3][0x540]  // 0x9D9B9896
+btd0x00800080	//regmap[0x3][0x544]  // 0x989B9DA0
+
+//=======================================================================================
+//=== Bayer DPC Register Define (4page 0x000 ~ 0x04F)
+//=======================================================================================
+btp0x00000004
+bta0x00000000
+btd0x00000019	//reg_dpc_ctl                    regmap[0x4][0x000]  // 0x00000019   
+btd0x00000000	//reg_dpc_surr_std_ctl           regmap[0x4][0x004]  // 0x80800200   
+btd0x00808000	//reg_dpc_th_ctl                 regmap[0x4][0x008]  // 0x00808000
+btd0x00000180	//reg_dpc_mask_stay_ctl          regmap[0x4][0x00C]  // 0x00000180
+btd0x100C0804	//reg_dpc_grp_std_3210           regmap[0x4][0x010]  // 0x100C0804
+btd0x4030281A	//reg_dpc_grp_std_7654           regmap[0x4][0x014]  // 0x4030281A
+btd0x00585048	//reg_dpc_grp_std_1098           regmap[0x4][0x018]  // 0x00585048
+btd0x18140C08	//reg_dpc_grp_lum_3210           regmap[0x4][0x01C]  // 0x18140C08
+btd0x30382C24	//reg_dpc_grp_lum_7654           regmap[0x4][0x020]  // 0x30382C24
+btd0x000A1420	//reg_dpc_grp_lum_1098           regmap[0x4][0x024]  // 0x000A1420
+btd0x08040201	//reg_dpc_cor_grp_3210           regmap[0x4][0x028]  // 0x08040201
+btd0x12100C0A	//reg_dpc_cor_grp_7654           regmap[0x4][0x02C]  // 0x12100C0A
+btd0x001A1816	//reg_dpc_cor_grp_1098           regmap[0x4][0x030]  // 0x001A1816
+
+//=======================================================================================
+//=== RGB Interpol Post DPC (4page 0x050 ~ 0x06F)
+//=======================================================================================
+btp0x00000004
+bta0x00000050
+btd0x00000003   //reg_rgb_post_dpc_ctl            regmap[0x4][0x050]  // 0x00000003
+btd0x80808080   //reg_rgb_post_dpc_ofs3210        regmap[0x4][0x054]  // 0x00000003
+btd0x80808080   //reg_rgb_post_dpc_ofs7654        regmap[0x4][0x058]  // 0x00000003
+
+///=======================================================================================
+//=== Y-Pre Processing DPC (4page 0x070 ~ 0x0FF)
+//=======================================================================================
+btp0x00000004
+bta0x00000070
+btd0x00000003	//reg_ypre_dpc_ctl               regmap[0x4][0x070]  // 0x00000003 
+btd0x80808080	//reg_ypre_dpc_rate_41           regmap[0x4][0x074]  // 0x80808080
+btd0x00000080	//reg_ypre_dpc_rate_5            regmap[0x4][0x078]  // 0x00000080
+btd0x80808080	//reg_ypre_dpc_ofs_41            regmap[0x4][0x07C]  // 0x00000000
+btd0x80808080	//reg_ypre_dpc_ofs_5             regmap[0x4][0x080]  // 0x00000000
+
+//=======================================================================================
+//=== Bayer Gb/Gr Correction
+//=======================================================================================
+btp0x00000004
+bta0x00000100
+btd0x011048EF	//reg_gbgr_ctl                   regmap[0x4][0x100]  // 0x011048F1
+btd0x60584840	//reg_gbgr_lumgain3210           regmap[0x4][0x104]  // 0x60584840
+btd0x7C786C68	//reg_gbgr_lumgain7654           regmap[0x4][0x108]  // 0x7C786C68
+btd0x00008080	//reg_gbgr_lumgain1098           regmap[0x4][0x10C]  // 0x00008080
+btd0x00048040	//reg_gbgr_radial_ctl            regmap[0x4][0x110]  // 0x000C8040
+btd0x05100000	//reg_gbgr_moire_ctl             regmap[0x4][0x114]  // 0x05100000
+
+//=======================================================================================
+//=== RGB Gb/Gr Correction
+//=======================================================================================
+btp0x00000004
+bta0x00000130
+btd0x0000001F	//reg_rgb_gbgr_ctl               regmap[0x4][0x130]  // 0x0000001F
+btd0x80406040	//reg_rgb_gbgr_rate_ctl          regmap[0x4][0x134]  // 0x80406040
+btd0x60584840	//reg_rgb_gbgr_lumgain3210       regmap[0x4][0x138]  // 0x60584840
+btd0x7C786C68	//reg_rgb_gbgr_lumgain7654       regmap[0x4][0x13C]  // 0x7C786C68
+btd0x00008080	//reg_rgb_gbgr_lumgain1098       regmap[0x4][0x140]  // 0x00008080
+btd0x00008080   //reg_rgb_gbgr_radial_ctl        regmap[0x4][0x144]  //
+
+
+//=======================================================================================
+//=== Bayer Pre-Flat Filter Define
+//=======================================================================================
+btp0x00000004
+bta0x00000200
+btd0x0023C1FF	//reg_rgn_byr_flt_ctl                                 regmap[0x4][0x200]   // 0x002007FF
+btd0x80008000	//reg_rgn_byr_flt_wnstd_axb                           regmap[0x4][0x204]   // 0x80008000
+btd0xFF80FF80	//reg_invlum_maxmin_limit                             regmap[0x4][0x208]   // 0xFF00FF00
+btd0x10090605	//reg_rgn_flt_emax1_3210                              regmap[0x4][0x20C]   // 0x04040302
+btd0x3030291e	//reg_rgn_flt_emax1_7654                              regmap[0x4][0x210]   // 0x08070605
+btd0x00120c0a	//reg_rgn_flt_emax1_1098                              regmap[0x4][0x214]   // 0x000B0A09
+btd0x20120c0a	//reg_rgn_flt_emax2_3210                              regmap[0x4][0x218]   // 0x08080706
+btd0x5050503c	//reg_rgn_flt_emax2_7654                              regmap[0x4][0x21C]   // 0x0C0B0A09
+btd0x00505050	//reg_rgn_flt_emax2_1098                              regmap[0x4][0x220]   // 0x00F0E0B0
+btd0x602e241e	//reg_rgn_flt_emax3_3210                              regmap[0x4][0x224]   // 0x10100908
+btd0x80808080	//reg_rgn_flt_emax3_7654                              regmap[0x4][0x228]   // 0x14131211
+btd0x80808080	//reg_rgn_flt_emax3_1098                              regmap[0x4][0x22C]   // 0x00171615
+btd0xFFFFFFFF	//reg_rgn_flt_emax4_3210                              regmap[0x4][0x230]   // 0x18181716
+btd0xFFFFFFFF	//reg_rgn_flt_emax4_7654                              regmap[0x4][0x234]   // 0x1C1B1A19
+btd0x00FFFFFF	//reg_rgn_flt_emax4_1098                              regmap[0x4][0x238]   // 0x001F1E1D
+btd0x10101010	//reg_rgn_flt_nwstd1_3210                             regmap[0x4][0x23C]   // 0x03030201
+btd0x10101010	//reg_rgn_flt_nwstd1_7654                             regmap[0x4][0x240]   // 0x03030303
+btd0x00101010	//reg_rgn_flt_nwstd1_1098                             regmap[0x4][0x244]   // 0x00030303
+btd0x20202020	//reg_rgn_flt_nwstd2_3210                             regmap[0x4][0x248]   // 0x08080706
+btd0x20202020	//reg_rgn_flt_nwstd2_7654                             regmap[0x4][0x24C]   // 0x08080808
+btd0x00202020	//reg_rgn_flt_nwstd2_1098                             regmap[0x4][0x250]   // 0x00080808
+btd0x50505050	//reg_rgn_flt_nwstd3_3210                             regmap[0x4][0x254]   // 0x10101010
+btd0x50505050	//reg_rgn_flt_nwstd3_7654                             regmap[0x4][0x258]   // 0x10101010
+btd0x00505050	//reg_rgn_flt_nwstd3_1098                             regmap[0x4][0x25C]   // 0x00101010
+btd0xFFFFFFFF	//reg_rgn_flt_nwstd4_3210	//  0   8  16  32         regmap[0x4][0x260]   // 0x20202020
+btd0xFFFFFFFF	//reg_rgn_flt_nwstd4_7654	// 48  64  96 128         regmap[0x4][0x264]   // 0x20202020
+btd0x00FFFFFF	//reg_rgn_flt_nwstd4_1098	//160 192 255             regmap[0x4][0x268]   // 0x00202020
+btd0x00078000	//reg_rgn_byr_flt_sel_ctlblsk                         regmap[0x4][0x26C]   // 0x00000000
+btd0x99999999	//reg_rgn_byr_flt_sel_ctl81							  regmap[0x4][0x270]   // 0x00000000
+						//[0:3]:EM1(weak edge)   [4:7]:EM2  [8:11]:EM3  [12:15]:EM4(strong edge)  
+						//[16:19]:NW1(strong flat) [20:23]:NW2  [24:27]:NW3  [28:31]:NW4(weak flat)
+						//0: byr_pittr   1: byr_pmed  2: byr_meanft  3: byr_gauss 4: byr_invgus
+						//5: byr_lnall   6: byr_lnhv  7: byr_cgauss  8: byr_acrflt
+
+btd0xFFFFFFFF	//4f6f7f4f	//aFdFFFaF   //reg_rgn_byr_flt_ratectl41	//1: EM1 2: EM2 ...    : EM1=flat
+btd0xFFFFFFFF	//6f7f8f9f	//cFdFefFF   //reg_rgn_byr_flt_ratectl85	//4: NW1 5: NW2 ...    : NW1=flat
+btd0xFFFFFFFF	//00888888	//FFFFFF   //reg_rgn_byr_flt_ratectlSB
+btd0xFFFFFFFF	//503c3228	//reg_rgn_byr_nr_lum_gain41
+btd0xFFFFFFFF	//80807364	//reg_rgn_byr_nr_lum_gain85
+btd0xFFFFFFFF	//80808080   //00A0BECD	//reg_rgn_byr_nr_lum_gainA9
+btd0x08000800
+
+//=======================================================================================
+//=== RGB Pre-Segment Filter Define
+//=======================================================================================
+btp0x00000004
+bta0x00000290
+btd0x00010AA1	//reg_rgb_rgn_std_ctl     regmap[0x4][0x290] // 0x00010FF9
+btd0xFF308001	//reg_rgb_rgn_nr_str1     regmap[0x4][0x294] // 0xFF108001
+btd0xFF208001	//reg_rgb_rgn_nr_str2     regmap[0x4][0x298] // 0xFF108001
+btd0xFF108001	//reg_rgb_rgn_nr_str3     regmap[0x4][0x29C] // 0xFF108001
+btd0xFF008001	//reg_rgb_rgn_nr_str4     regmap[0x4][0x2A0] // 0xFF108001
+btd0x04040302	//reg_rgb_rgn_th_1_3210   regmap[0x4][0x2A4] // 0x04040302
+btd0x08070605	//reg_rgb_rgn_th_1_7654   regmap[0x4][0x2A8] // 0x08070605
+btd0x000B0A09	//reg_rgb_rgn_th_1_1098   regmap[0x4][0x2AC] // 0x000B0A09
+btd0x08080706	//reg_rgb_rgn_th_2_3210   regmap[0x4][0x2B0] // 0x08080706
+btd0x0C0B0A09	//reg_rgb_rgn_th_2_7654   regmap[0x4][0x2B4] // 0x0C0B0A09
+btd0x000F0E0B	//reg_rgb_rgn_th_2_1098   regmap[0x4][0x2B8] // 0x00F0E0B0
+btd0x10100908	//reg_rgb_rgn_th_3_3210   regmap[0x4][0x2BC] // 0x10100908
+btd0x14131211	//reg_rgb_rgn_th_3_7654   regmap[0x4][0x2C0] // 0x14131211
+btd0x00171615	//reg_rgb_rgn_th_3_1098   regmap[0x4][0x2C4] // 0x00171615
+btd0x18181716	//reg_rgb_rgn_th_4_3210   regmap[0x4][0x2C8] // 0x18181716
+btd0x1C1B1A19	//reg_rgb_rgn_th_4_7654   regmap[0x4][0x2CC] // 0x1C1B1A19
+btd0x001F1E1D	//reg_rgb_rgn_th_4_1098   regmap[0x4][0x2D0] // 0x001F1E1D
+
+//=======================================================================================
+//=== Y-Pre-Segment Filter Define
+//=======================================================================================
+btp0x00000004
+bta0x00000300  
+btd0x00183FFF	//reg_ypre_rgn_ctl
+btd0x77787777   //reg_ypre_rgnflt_sel_ctl1   0 : acr   1 : cgau   2 : 3x3   3 : 5x5   4 : hv3   
+btd0x00000088   //reg_ypre_rgnflt_sel_ctl2   5 : all3  6 : hv5    7 : all5  8 : 7x7   9 : med
+				//[0] weak edge [3] strong edge // [4]strong flat [8] weak flat
+btd0x30303030   //18181818	//reg_ypre_rgn1_emax30
+btd0x30303030   //18181818	//reg_ypre_rgn1_emax74
+btd0x50505050  //30303030  //reg_ypre_rgn2_emax30
+btd0x50505050  //30303030  //reg_ypre_rgn2_emax74
+btd0x80808080  //50505050  //reg_ypre_rgn3_emax30
+btd0x80808080  //50505050  //reg_ypre_rgn3_emax74
+btd0xFFFFFFFF  //reg_ypre_rgn4_emax30
+btd0xFFFFFFFF  //reg_ypre_rgn4_emax74
+btd0x10101010  //reg_ypre_rgn1_std30
+btd0x10101010  //reg_ypre_rgn1_std74 
+btd0x30303030  //reg_ypre_rgn2_std30
+btd0x30303030  //reg_ypre_rgn2_std74  
+btd0x60606060  //reg_ypre_rgn3_std30
+btd0x60606060  //reg_ypre_rgn3_std74 
+btd0xFFFFFFFF  //reg_ypre_rgn4_std30 
+btd0xFFFFFFFF  //reg_ypre_rgn4_std74 
+btd0x68707880	//20405060  //reg_yrgn_flt_rate_41
+btd0x88a0d8f0	//708090a0  //reg_yrgn_flt_rate_85 
+btd0x00008080  //reg_yrgn_flt_rate_sb
+btd0x80808080  //reg_ypre_rgn_lum_gain_41
+btd0x80808080  //reg_ypre_rgn_lum_gain_85
+
+//=======================================================================================
+//=== Bayer Noise Reduction 
+//=======================================================================================
+btp0x00000004
+bta0x00000400
+btd0x00000403	//reg_byr_nr_ctl
+btd0x00000040	//reg_post_nr_rate
+btd0x2222003F	//reg_beseg_cnw_ctl
+btd0x6040C080	//reg_beseg_cn     
+btd0x00003018	//reg_beseg_w      
+btd0x50706080	//reg_enr_rate_cn  
+btd0x00004060	//reg_enr_rate_w   
+btd0x7d706860	//78706860	//reg_nr_dy_rate_3210
+btd0x6d757d82	//60607080	//reg_nr_dy_rate_7654
+btd0x004a5a64	//00405060	//reg_nr_dy_rate_1098
+btd0x00019008	//reg_nr_hv_std_ctl  
+
+//=======================================================================================
+//=== RGB Noise Reduction 
+//=======================================================================================
+btp0x00000004
+bta0x00000440
+btd0x00000201	//reg_rgb_byr_ln_ctl         
+btd0x727a7e80	//30201000	//reg_rgb_byr_ln_dy_rate_3210
+btd0x4654626a	//70605040	//reg_rgb_byr_ln_dy_rate_7654
+btd0x00142a37	//00a09080	//reg_rgb_byr_ln_dy_rate_1098
+
+//=======================================================================================
+//=== RGB-Y Post NR
+//=======================================================================================
+btp0x00000004
+bta0x00000460
+btd0x00006447	//reg_rgbY_nr_ctl            
+btd0xFF189800	//reg_rgbY_std_ctl               regmap[0x4][0x464]  // 0xFF189800
+btd0x80808080   //reg_rgbY_nr_std_th3210         regmap[0x4][0x468]  // 0x13100C08
+btd0x80808080   //reg_rgbY_nr_std_th7654         regmap[0x4][0x46C]  // 0x1C1C1A17
+btd0x80808080   //reg_rgbY_nr_lum_th3210         regmap[0x4][0x470]  // 0x0C0A0804
+btd0x80808080   //reg_rgbY_nr_lum_th7654         regmap[0x4][0x474]  // 0x1C181410
+btd0x80808080   //reg_rgbY_ln_rate3210           regmap[0x4][0x478]  // 0x80808080
+btd0x80808080   //reg_rgbY_ln_rate7654           regmap[0x4][0x47C]  // 0x80808080
+
+//=======================================================================================
+//=== Y-Pre Noise Reduction 
+//=======================================================================================
+btp0x00000004
+bta0x00000490
+btd0x00000B03	//reg_ypre_line_nr_ctl           regmap[0x4][0x490]  // 0x00000B03
+btd0x80808080	//reg_ypre_lndyrate_41           regmap[0x4][0x494]  // 0x80808080
+btd0x80808080	//reg_ypre_lndyrate_85           regmap[0x4][0x498]  // 0x80808080
+
+//=======================================================================================
+//=== Post-Y Ln Control
+//=======================================================================================
+btp0x00000004
+bta0x000004B0
+btd0x00000001	//reg_ypost_ln_ctl                regmap[0x4][0x4B0]  // 0x00000001
+btd0x80808080	//reg_ypost_ln_rate_30            regmap[0x4][0x4B4]  // 0x80808080
+btd0x80808080	//reg_ypost_ln_rate_74            regmap[0x4][0x4B8]  // 0x80808080
+
+bta0x000004C0
+btd0x00000001	//reg_ypost_nr_ctl                regmap[0x4][0x4C0]  // 0x00000000
+btd0x1e323c4b	//reg_ypost_nr_lum3210            regmap[0x4][0x4C4]  // 0x00000000
+btd0x0000060e	//reg_ypost_nr_lum7654            regmap[0x4][0x4C8]  // 0x00000000
+
+//=======================================================================================
+//=== RGB Bayer Sharpness Control
+//=======================================================================================
+btp0x00000004
+bta0x00000500
+btd0x00003205	//reg_byr_sharp_ctl              regmap[0x4][0x500]  // 0x00003205
+btd0x00008080	//reg_byr_sharp_global_gain_np   regmap[0x4][0x504]  // 0x00008080	//[FF]:po [FF00] : ne
+btd0x00FF8000	//reg_byr_sharp_sat_ctl          regmap[0x4][0x508]  // 0x00FF8000
+btd0x00048000	//reg_byr_sharp_std_ctl          regmap[0x4][0x50C]  // 0x00048000
+btd0x00030301	//reg_byr_sharp_det_ctl          regmap[0x4][0x510]  // 0x002B0507
+btd0x20100800	//140c0600   //reg_byr_sharp_limit_n3210      regmap[0x4][0x514]  // 0x0C060300
+btd0x40404040	//3f372d20   //reg_byr_sharp_limit_n7654      regmap[0x4][0x518]  // 0x60482C18
+btd0x20100800	//140c0600   //reg_byr_sharp_limit_p3210      regmap[0x4][0x51C]  // 0x0C060300
+btd0x40404040	//3f372d20   //reg_byr_sharp_limit_p7654      regmap[0x4][0x520]  // 0x60482C18
+btd0x7B787470   //reg_byr_sharp_lum_n3210        regmap[0x4][0x524]  // 0x70686050
+btd0x9088807E   //reg_byr_sharp_lum_n7654        regmap[0x4][0x528]  // 0x80888078
+btd0x00A8A098   //reg_byr_sharp_lum_n1098        regmap[0x4][0x52C]  // 0x00687078
+btd0x70605040	//b9c6cdd2	//dcf0faff   //reg_byr_sharp_lum_p3210        regmap[0x4][0x530]  // 0x70686050
+btd0x6e808080	//829eab	//6e82adc4   //reg_byr_sharp_lum_p7654        regmap[0x4][0x534]  // 0x80888078
+btd0x0032505f   //reg_byr_sharp_lum_p1098        regmap[0x4][0x538]  // 0x00687078
+btd0x6e504640	//reg_byr_sharp_emax_n3210        regmap[0x4][0x53C]  // 0x70604030
+btd0x80808080	//reg_byr_sharp_emax_n7654        regmap[0x4][0x540]  // 0x80808080
+btd0x00808080	//reg_byr_sharp_emax_n1098        regmap[0x4][0x544]  // 0x00707078
+btd0x6e504640	//reg_byr_sharp_emax_p3210        regmap[0x4][0x548]  // 0x70604030
+btd0x80808080	//reg_byr_sharp_emax_p7654        regmap[0x4][0x54C]  // 0x80808080
+btd0x00808080	//reg_byr_sharp_emax_p1098        regmap[0x4][0x550]  // 0x00707078
+btd0x80808080	//reg_byr_sharp_rad_np3210       regmap[0x4][0x554]  // 0x80808080
+btd0x80808080	//reg_byr_sharp_rad_np7654       regmap[0x4][0x558]  // 0x80808080
+btd0x7F7F7F7F   //30201000	//reg_byr_sharp_mlmt_n3210       regmap[0x4][0x55C]  // 0x7F7F7F7F
+btd0x7F7F7F7F   //70605040	//reg_byr_sharp_mlmt_n7654       regmap[0x4][0x560]  // 0x7F7F7F7F
+btd0x7F7F7F7F   //30201000	//reg_byr_sharp_mlmt_p3210       regmap[0x4][0x564]  // 0x7F7F7F7F
+btd0x7F7F7F7F   //70605040	//reg_byr_sharp_mlmt_p7654       regmap[0x4][0x568]  // 0x7F7F7F7F
+btd0x68707880	//reg_byr_sharp_sat_n3210        regmap[0x4][0x56C]  // 0x80808080
+btd0x40505860	//reg_byr_sharp_sat_n7654        regmap[0x4][0x570]  // 0x80808080
+btd0x68707880	//reg_byr_sharp_sat_p3210        regmap[0x4][0x574]  // 0x80808080
+btd0x40505860	//reg_byr_sharp_sat_p7654        regmap[0x4][0x578]  // 0x80808080
+btd0x8c6e5040	//80808080	//reg_byr_sharp_std_np3210       regmap[0x4][0x57C]  // 0x80808080
+btd0xc8baafa0	//80808080	//reg_byr_sharp_std_np7654       regmap[0x4][0x580]  // 0x80808080
+btd0x00000000	//reg_byr_sharp_core_sbw4321_n   regmap[0x4][0x584]  // 0x00000000
+btd0x00001234	//reg_byr_sharp_core_sbw4321_p   regmap[0x4][0x588]  // 0x00000000
+
+
+//=======================================================================================
+//=== Interpol Pre-Processing Sharp
+//=======================================================================================
+btp0x00000004
+bta0x00000600
+btd0x44480805	//reg_rgbbyr_sharp_ctl            regmap[0x4][0x600]  // 0x00280807
+btd0x20100800	//140c0600	//reg_rgbbyr_sharp_limit_n3210    regmap[0x4][0x604]  // 0x0C060300
+btd0x40404040	//3f372d20	//reg_rgbbyr_sharp_limit_n7654    regmap[0x4][0x608]  // 0x60482C18
+btd0x20100800	//140c0600	//reg_rgbbyr_sharp_limit_p3210    regmap[0x4][0x60C]  // 0x0C060300
+btd0x40404040	//3f372d20	//reg_rgbbyr_sharp_limit_p7654    regmap[0x4][0x610]  // 0x60482C18
+btd0x7B787470   //reg_rgbbyr_sharp_lum_n3210      regmap[0x4][0x614]  // 0x70686050
+btd0x9088807E   //reg_rgbbyr_sharp_lum_n7654      regmap[0x4][0x618]  // 0x80888078
+btd0x00A8A098   //reg_rgbbyr_sharp_lum_n1098      regmap[0x4][0x61C]  // 0x00687078
+btd0xdcf0faff   //reg_rgbbyr_sharp_lum_p3210      regmap[0x4][0x620]  // 0x70686050
+btd0x6e82adc4   //reg_rgbbyr_sharp_lum_p7654      regmap[0x4][0x624]  // 0x80888078
+btd0x0032505f   //reg_rgbbyr_sharp_lum_p1098      regmap[0x4][0x628]  // 0x00687078
+btd0x80808080   //7B787470   //reg_rgbbyr_sharp_idy_n3210     regmap[0x4][0x62C]  // 0x70604030	//kekim
+btd0x80808080   //9088807E   //reg_rgbbyr_sharp_idy_n7654     regmap[0x4][0x630]  // 0x80808080
+btd0x80808080   //00A8A098   //reg_rgbbyr_sharp_idy_n1098     regmap[0x4][0x634]  // 0x00707078
+btd0x80808080   //dcf0faff   //reg_rgbbyr_sharp_idy_p3210     regmap[0x4][0x638]  // 0x70604030
+btd0x80808080   //6e82adc4   //reg_rgbbyr_sharp_idy_p7654     regmap[0x4][0x63C]  // 0x80808080
+btd0x80808080   //0032505f   //reg_rgbbyr_sharp_idy_p1098     regmap[0x4][0x640]  // 0x00707078
+btd0x80808080	//reg_rgbbyr_sharp_sat_n3210      regmap[0x4][0x644]  // 0x80808080
+btd0x60708080	//reg_rgbbyr_sharp_sat_n7654      regmap[0x4][0x648]  // 0x80808080
+btd0x80808080	//reg_rgbbyr_sharp_sat_p3210      regmap[0x4][0x64C]  // 0x80808080
+btd0x60708080	//reg_rgbbyr_sharp_sat_p7654      regmap[0x4][0x650]  // 0x80808080
+btd0x80808080	//reg_rgbbyr_sharp_rad_np3210     regmap[0x4][0x654]  // 0x80808080
+btd0x80808080	//reg_rgbbyr_sharp_rad_np7654     regmap[0x4][0x658]  // 0x80808080
+btd0x80808080	//reg_rgbbyr_sharp_std_np3210     regmap[0x4][0x65C]  // 0x80808080
+btd0x80808080	//reg_rgbbyr_sharp_std_np7654     regmap[0x4][0x660]  // 0x80808080
+btd0x7F7F0000	//reg_rgbbyr_sharp_max_core       regmap[0x4][0x664]  // 0x7F7F0000
+
+//=======================================================================================
+//=== RGB Post Y-Sharpness 
+//=======================================================================================
+btp0x00000004
+bta0x00000680
+btd0x002f0f0d	//reg_rgbY_sharp_ctl             regmap[0x4][0x680]  // 0x00280809
+btd0x80808080	//reg_rgbY_sharp_dy_n3210        regmap[0x4][0x684]  // 0x86848280
+btd0x40708080	//reg_rgbY_sharp_dy_n7654        regmap[0x4][0x688]  // 0x68707880
+btd0x966e5040	//reg_rgbY_sharp_dy_p3210        regmap[0x4][0x68C]  // 0x86848280
+btd0x2091b4c8	//reg_rgbY_sharp_dy_p7654        regmap[0x4][0x690]  // 0x68707880
+
+btd0x7B787470	//reg_rgbY_sharp_lum_n3210       regmap[0x4][0x694]  // 0x70686050
+btd0x9088807E	//reg_rgbY_sharp_lum_n7654       regmap[0x4][0x698]  // 0x80888078
+btd0x00A8A098	//reg_rgbY_sharp_lum_n1098       regmap[0x4][0x69C]  // 0x00687078
+btd0x74787c80	//d0d0d0d0	//reg_rgbY_sharp_lum_p3210       regmap[0x4][0x6A0]  // 0x70686050
+btd0x60646870	//6e82adc4	//reg_rgbY_sharp_lum_p7654       regmap[0x4][0x6A4]  // 0x80888078
+btd0x0032505f	//reg_rgbY_sharp_lum_p1098       regmap[0x4][0x6A8]  // 0x00687078
+
+btd0x80787068	//606e504640	//reg_rgbY_sharp_std_n3210       regmap[0x4][0x6AC]  // 0x70604030
+btd0xfffadcb4	//reg_rgbY_sharp_std_n7654       regmap[0x4][0x6B0]  // 0x80808080
+btd0x00dce6f0	//reg_rgbY_sharp_std_n1098       regmap[0x4][0x6B4]  // 0x00707078
+btd0x64504640	//reg_rgbY_sharp_std_p3210       regmap[0x4][0x6B8]  // 0x70604030
+btd0x6e828278	//reg_rgbY_sharp_std_p7654       regmap[0x4][0x6BC]  // 0x80808080
+btd0x000a3850	//reg_rgbY_sharp_std_p1098       regmap[0x4][0x6C0]  // 0x00707078
+
+bta0x000006CC
+btd0x80808080	//reg_rgbY_sharp_sat_n3210       regmap[0x4][0x6CC]  // 0x80808080
+btd0x60707880	//reg_rgbY_sharp_sat_n7654       regmap[0x4][0x6D0]  // 0x60707880
+btd0x80808080	//reg_rgbY_sharp_sat_p3210       regmap[0x4][0x6D4]  // 0x80808080
+btd0x60707880	//reg_rgbY_sharp_sat_p7654       regmap[0x4][0x6D8]  // 0x60707880
+btd0x00003030	//reg_rgbY_sharp_max_core        regmap[0x4][0x6DC]  // 0x00007F7F
+
+//=======================================================================================
+//=== Y-Preprocessing Sharpness 
+//=======================================================================================
+btp0x00000004
+bta0x00000700
+btd0x00000007	//reg_ypre_sharp_ctl              regmap[0x4][0x700]  // 0x00000005
+btd0x00121212	//reg_ypre_sharp_fltgain          regmap[0x4][0x704]  // 0x000C0C0C
+btd0x1c0c0600	//reg_ypre_sharp_limit_n30        regmap[0x4][0x708]  // 0x60402000
+btd0xa0584632	//reg_ypre_sharp_limit_n74        regmap[0x4][0x70C]  // 0xFFC0A080
+btd0x1c0c0600	//reg_ypre_sharp_limit_p30        regmap[0x4][0x710]  // 0x60402000
+btd0xa0584632	//reg_ypre_sharp_limit_p74        regmap[0x4][0x714]  // 0xFFC0A080
+btd0x84828180	//reg_ypre_sharp_dy_n30           regmap[0x4][0x718]  // 0x80808080
+btd0xd2a0968c	//reg_ypre_sharp_dy_n74           regmap[0x4][0x71C]  // 0x80808080
+btd0x80808080   //aab8c3d2	//reg_ypre_sharp_dy_p30           regmap[0x4][0x720]  // 0x80808080
+btd0x80808080   //80868b96	//reg_ypre_sharp_dy_p74           regmap[0x4][0x724]  // 0x80808080
+btd0x84808080	//reg_ypre_sharp_lum_n30          regmap[0x4][0x728]  // 0x80808080
+btd0xA8A0968C	//reg_ypre_sharp_lum_n74          regmap[0x4][0x72C]  // 0x80808080
+btd0x80808080   //reg_ypre_sharp_lum_p30          regmap[0x4][0x730]  // 0x80808080
+btd0x80808080   //reg_ypre_sharp_lum_p74          regmap[0x4][0x734]  // 0x80808080
+btd0x80808080   //reg_ypre_sharp_emax_n30         regmap[0x4][0x738]  // 0x80808080
+btd0x80808080   //reg_ypre_sharp_emax_n74         regmap[0x4][0x73C]  // 0x80808080
+btd0x80808080   //reg_ypre_sharp_emax_p30         regmap[0x4][0x740]  // 0x80808080
+btd0x80808080   //reg_ypre_sharp_emax_p74         regmap[0x4][0x744]  // 0x80808080
+btd0x80808080	//reg_ypre_sharp_sat_n30          regmap[0x4][0x748]  // 0x80808080
+btd0x50607080	//reg_ypre_sharp_sat_n74          regmap[0x4][0x74C]  // 0x80808080
+btd0x80808080	//reg_ypre_sharp_sat_p30          regmap[0x4][0x750]  // 0x80808080
+btd0x50607080	//reg_ypre_sharp_sat_p74          regmap[0x4][0x754]  // 0x80808080
+btd0x60585048	//reg_ypre_sharp_std_np30         regmap[0x4][0x758]  // 0x80808080
+btd0x80787068	//reg_ypre_sharp_std_np74         regmap[0x4][0x75C]  // 0x80808080
+btd0xFFFF8080	//reg_ypre_sharp_maxn_ggain       regmap[0x4][0x760]  // 0xFFFF8080
+btd0x00000000   //reg_ypre_sharp_core_skbl_n      regmap[0x4][0x764]  // 0x00000000
+btd0x00000000   //reg_ypre_sharp_core_rgn_n       regmap[0x4][0x768]  // 0x00000000
+btd0x00000000   //reg_ypre_sharp_core_skbl_p      regmap[0x4][0x76C]  // 0x00000000
+btd0x00000000   //reg_ypre_sharp_core_rgn_p       regmap[0x4][0x770]  // 0x00000000
+btd0x000FF102   //reg_ypre_radial_ctl             regmap[0x4][0x774]  // 0x000FF102
+btd0x80808080   //reg_ypre_sharp_rad_np30         regmap[0x4][0x778]  // 0x80808080
+btd0x80808080   //reg_ypre_sharp_rad_np74         regmap[0x4][0x77C]  // 0x80808080
+
+//=======================================================================================
+//=== Y-Post-Processing (Sharp/NR)
+//=======================================================================================
+btp0x00000004
+bta0x00000780
+btd0x00000101   //reg_ypost_sharp_ctl                       regmap[0x4][0x780]   //  0x000000C1
+btd0x280f0400	//reg_ypost_sharp_limit_n30                 regmap[0x4][0x784]   //  0x60402000
+btd0xc8a37d4b	//reg_ypost_sharp_limit_n74                 regmap[0x4][0x788]   //  0xFFC0A080
+btd0x280f0400	//reg_ypost_sharp_limit_p30                 regmap[0x4][0x78C]   //  0x60402000
+btd0xc8a37d4b	//reg_ypost_sharp_limit_p74                 regmap[0x4][0x790]   //  0xFFC0A080
+btd0x40201000	//reg_ypost_sharp_dy_n30          			regmap[0x4][0x794]   //  0x80808080
+btd0x10204060	//reg_ypost_sharp_dy_n74          			regmap[0x4][0x798]   //  0x80808080
+btd0x40201000	//reg_ypost_sharp_dy_p30          			regmap[0x4][0x79C]   //  0x80808080
+btd0x10204060	//reg_ypost_sharp_dy_p74          			regmap[0x4][0x7A0]   //  0x80808080
+btd0x84808080   //reg_ypost_sharp_lum_n30                   regmap[0x4][0x7A4]   //  0x80808080
+btd0xA8A0968C   //reg_ypost_sharp_lum_n74                   regmap[0x4][0x7A8]   //  0x80808080
+btd0x60402000   //8C96A0A8   //reg_ypost_sharp_lum_p30                   regmap[0x4][0x7AC]   //  0x80808080
+btd0x80808080   //80808084   //reg_ypost_sharp_lum_p74                   regmap[0x4][0x7B0]   //  0x80808080
+btd0xbea08c80	//80808080   //reg_ypost_sharp_emax_n30     regmap[0x4][0x7B4]   //  0x80808080
+btd0xfffaf0dc	//70788080   //reg_ypost_sharp_emax_n74     regmap[0x4][0x7B8]   //  0x80808080
+btd0xb4a08c80	//bea08c80	//80808080   //reg_ypost_sharp_emax_p30     regmap[0x4][0x7BC]   //  0x80808080
+btd0x78afbec8	//fffaf0dc	//70788080   //reg_ypost_sharp_emax_p74     regmap[0x4][0x7C0]   //  0x80808080
+btd0x80808080   //reg_ypost_sharp_sat_n30                   regmap[0x4][0x7C4]   //  0x80808080
+btd0x50607080   //reg_ypost_sharp_sat_n74                   regmap[0x4][0x7C8]   //  0x80808080
+btd0x80808080   //reg_ypost_sharp_sat_p30                   regmap[0x4][0x7CC]   //  0x80808080
+btd0x50607080   //reg_ypost_sharp_sat_p74                   regmap[0x4][0x7D0]   //  0x80808080
+btd0xbea08c80   //80808080   //reg_ypost_sharp_std_n30      regmap[0x4][0x7D4]   //  0x80808080
+btd0xfffaf0dc   //80808080   //reg_ypost_sharp_std_n74      regmap[0x4][0x7D8]   //  0x80808080
+btd0xbea08c80   //80808080   //reg_ypost_sharp_std_p30      regmap[0x4][0x7DC]   //  0x80808080
+btd0xfffaf0dc   //80808080   //reg_ypost_sharp_std_p74      regmap[0x4][0x7E0]   //  0x80808080
+btd0x00008080   //reg_ypost_sharp_postgain                  regmap[0x4][0x7E4]   //  0x00008080	//ff : nega ff00 : posi
+btd0x10080400   //28201000	//reg_ypost_sharp_maxclp_n30    regmap[0x4][0x7E8]   //  0x80808080
+btd0x38302820   //08102030	//reg_ypost_sharp_maxclp_n74    regmap[0x4][0x7EC]   //  0x80808080
+btd0x10080400   //28201000	//reg_ypost_sharp_maxclp_p30    regmap[0x4][0x7F0]   //  0x80808080
+btd0x38302820   //08102030	//reg_ypost_sharp_maxclp_p74    regmap[0x4][0x7F4]   //  0x80808080
+
+
+//=======================================================================================
+//=== RGB Color Noise Reduction..
+//=======================================================================================
+btp0x00000004
+bta0x00000800
+btd0x00000003	//reg_rgb_cnr_ctl               regmap[0x4][0x800]  // 0x00000401  // gggxxx
+btd0x80804A4A	//reg_rgb_cnr_base_th           regmap[0x4][0x804]  // 0x80800808
+
+bta0x0000080C
+btd0x00081020	//reg_rgb_cnr_madj_ctl          regmap[0x4][0x80C]  // 0x00204068
+btd0x10101010	//reg_rgb_cnr_rth3210           regmap[0x4][0x810]  // 0x0D0E0F10
+btd0x10101010	//reg_rgb_cnr_rth7654           regmap[0x4][0x814]  // 0x080A0B0C
+btd0x10101010	//reg_rgb_cnr_gth3210           regmap[0x4][0x818]  // 0x05060708
+btd0x10101010	//reg_rgb_cnr_gth7654           regmap[0x4][0x81C]  // 0x04040404
+btd0x10101010	//reg_rgb_cnr_bth3210           regmap[0x4][0x820]  // 0x0F101214
+btd0x10101010	//reg_rgb_cnr_bth7654           regmap[0x4][0x824]  // 0x0A0C0D0E
+btd0x090B0D10	//reg_rgb_cnr_sth3210           regmap[0x4][0x828]  // 0x16181A1C
+btd0x06060708	//reg_rgb_cnr_sth7654           regmap[0x4][0x82C]  // 0x0A0C0E12
+
+btd0x80808080	//reg_rgb_cnr_emaxth3210           regmap[0x4][0x830]  // 
+btd0x80808080	//reg_rgb_cnr_emaxth7654           regmap[0x4][0x834]  // 
+btd0x80808080	//76a0c8ff	//reg_rgb_cnr_stdth3210           regmap[0x4][0x838]  // 
+btd0x80808080	//00283246	//reg_rgb_cnr_stdth7654           regmap[0x4][0x83C]  // 
+
+//=======================================================================================
+//=== C-Pre-Processing (Sharp/NR)
+//=======================================================================================
+btp0x00000004
+bta0x00000840
+btd0x10305817	//reg_yuv_cnr_ctl                regmap[0x4][0x840]   // 0x4080A003
+btd0x40402020	//reg_yuv_cnr_th_ctl             regmap[0x4][0x844]   // 0xA0A00A0A
+btd0x22201A18	//reg_yuv_cnr_th_lum_3210        regmap[0x4][0x848]   // 0x24201810
+btd0x282C2C28	//reg_yuv_cnr_th_lum_7654        regmap[0x4][0x84C]   // 0x181C2022
+btd0x1A1C1E20	//reg_yuv_cnr_th_dy_3210         regmap[0x4][0x850]   // 0x30405060
+btd0x12151719	//reg_yuv_cnr_th_dy_7654         regmap[0x4][0x854]   // 0x10182028
+btd0x0C0E0F10	//reg_yuv_cnr_th_sat_3210        regmap[0x4][0x858]   // 0x28241C18
+btd0x0707080A	//reg_yuv_cnr_th_sat_7654        regmap[0x4][0x85C]   // 0x181C2224
+btd0x000000E0	//reg_yuv_cnr_post_rate          regmap[0x4][0x860]   // 0x000000A0
+btd0x00202335   //reg_yuv_cnr_wtprt_ctl          regmap[0x4][0x864]   // 0x00000000
+btd0x78102820   //reg_yuv_cnr_vext_ctl           regmap[0x4][0x868]   // 0x00000000
+btd0x787C8084   //6e787d80   //reg_yuv_cnr_th_emax_3210       regmap[0x4][0x870]   // 0x00000000
+btd0x70727476   //324b5864   //reg_yuv_cnr_th_emax_7654       regmap[0x4][0x874]   // 0x00000000
+
+//=======================================================================================
+//=== RGB Color Correction Matrix Register
+//=======================================================================================
+btp0x00000004
+bta0x00000900
+btd0x0000007F	//reg_rgb_ccm_ctl                regmap[0x4][0x900]  // 0x0000007F
+
+btd0xD1905005	//reg_rgb_ccm_r_val_0            regmap[0x4][0x904]  // 0x14C1000C
+btd0xD1905005	//reg_rgb_ccm_r_val_1            regmap[0x4][0x908]  // 0x14C1000C
+btd0xD1905005	//reg_rgb_ccm_r_val_2            regmap[0x4][0x90C]  // 0x14C1000C
+btd0xD1905005	//reg_rgb_ccm_r_val_3            regmap[0x4][0x910]  // 0x14C1000C
+btd0xD1905005	//reg_rgb_ccm_r_val_4            regmap[0x4][0x914]  // 0x14C1000C
+
+btd0x8334CC00	//reg_rgb_ccm_g_val_0            regmap[0x4][0x918]  // 0x0505300C
+btd0x8334CC00	//reg_rgb_ccm_g_val_1            regmap[0x4][0x91C]  // 0x0505300C
+btd0x8334CC00	//reg_rgb_ccm_g_val_2            regmap[0x4][0x920]  // 0x0505300C
+btd0x8334CC00	//reg_rgb_ccm_g_val_3            regmap[0x4][0x924]  // 0x0505300C
+btd0x8334CC00	//reg_rgb_ccm_g_val_4            regmap[0x4][0x928]  // 0x0505300C
+
+btd0x4000CD33	//reg_rgb_ccm_b_val_0            regmap[0x4][0x92C]  // 0x0190CD4C
+btd0x4000CD33	//reg_rgb_ccm_b_val_1            regmap[0x4][0x930]  // 0x0190CD4C
+btd0x4000CD33	//reg_rgb_ccm_b_val_2            regmap[0x4][0x934]  // 0x0190CD4C
+btd0x4000CD33	//reg_rgb_ccm_b_val_3            regmap[0x4][0x938]  // 0x0190CD4C
+btd0x4000CD33	//reg_rgb_ccm_b_val_4            regmap[0x4][0x93C]  // 0x0190CD4C
+
+//=======================================================================================
+//=== YUV Saturation/Hue Contrast/Brightness
+//=======================================================================================
+btp0x00000004
+bta0x00000960
+btd0x00000001	//1	//reg_yuv_sat_ctl                 regmap[0x4][0x960]  // 0x00000000
+btd0x03800380	//reg_yuv_sat_cbr_gain            regmap[0x4][0x964]  // 0x02000200	//[cb][cr]
+btd0x01e001c2	//02000200	//reg_yuv_sat_graph_10            regmap[0x4][0x968]  // 0x02000200
+btd0x020001f4	//02000200	//reg_yuv_sat_graph_32            regmap[0x4][0x96C]  // 0x02000200
+btd0x02000200	//reg_yuv_sat_graph_54            regmap[0x4][0x970]  // 0x02000200
+btd0x02000200	//reg_yuv_sat_graph_76            regmap[0x4][0x974]  // 0x02000200
+
+//=======================================================================================
+//=== Bayer Saturation/De-Saturation
+//=======================================================================================
+btp0x00000004
+bta0x00000980
+btd0x00000000	//reg_byr_ce_ctl                 regmap[0x4][0x980]   //  0x0000000F
+btd0x00000580	//reg_byr_ce_rad_ctl             regmap[0x4][0x984]   //  0x00000580
+
+btd0x80808080	//reg_byr_ce_Sat_3210            regmap[0x4][0x988]   //  0x908C8884
+btd0x80808080	//reg_byr_ce_Sat_7654            regmap[0x4][0x98C]   //  0x8C909490
+btd0x00808080	//reg_byr_ce_Sat_1098            regmap[0x4][0x990]   //  0x00808488
+
+btd0x80808080	//reg_byr_ce_Rad_3210            regmap[0x4][0x994]   //  0x80808080
+btd0x80808080	//reg_byr_ce_Rad_7654            regmap[0x4][0x998]   //  0x787C8080
+btd0x00808080	//reg_byr_ce_Rad_1098            regmap[0x4][0x99C]   //  0x00686C72
+
+btd0x80808080	//reg_byr_ce_Lum_3210            regmap[0x4][0x9A0]   //  0x8C8C8C88
+btd0x80808080	//reg_byr_ce_Lum_7654            regmap[0x4][0x9A4]   //  0x8C8C8C8C
+btd0x00808080	//reg_byr_ce_Lum_1098            regmap[0x4][0x9A8]   //  0x00808488
+
+//=======================================================================================
+//=== RGB Color Enhancement 
+//=======================================================================================
+btp0x00000004
+bta0x000009C0
+btd0x000000AC	//reg_rgb_ce_ctl                regmap[0x4][0x9C0]  //  0x000000AC
+btd0x80808080	//reg_rgb_ce_gain3210           regmap[0x4][0x9C4]  //  0xA2A6ACB0
+btd0x80808080	//reg_rgb_ce_gain7654           regmap[0x4][0x9C8]  //  0x8694989C
+btd0x00000000	//80808080	//reg_rgb_rad_gain3210          regmap[0x4][0x9CC]  //  0x80808080
+btd0x00000000	//reg_rgb_rad_gain7654          regmap[0x4][0x9D0]  //  0x80808080
+btd0x00000380   //reg_rgb_ce_rad_ctl            regmap[0x4][0x9D4]  // 
+
+//=======================================================================================
+//=== RGB Color Enhancement 
+//=======================================================================================
+btp0x00000004
+bta0x00000A00
+btd0x0000003F	//reg_clren_ctl                  regmap[0x4][0xA00]   //  0x0000003F
+btd0x02000200	//reg_clren_Sat_gain_21          regmap[0x4][0xA04]   //  0x02000200	//0~60		//R-Y
+btd0x02000200	//reg_clren_Sat_gain_43          regmap[0x4][0xA08]   //  0x02000200	//60~120	//Y-G
+btd0x02000200	//reg_clren_Sat_gain_65          regmap[0x4][0xA0C]   //  0x02000200	//120~180	//G-C
+btd0x02400220	//reg_clren_Sat_gain_87          regmap[0x4][0xA10]   //  0x02000200	//180~240	//C-B
+btd0x02000230	//reg_clren_Sat_gain_A9          regmap[0x4][0xA14]   //  0x02000200	//240~300	//B-M
+btd0x02000200	//reg_clren_Sat_gain_CB          regmap[0x4][0xA18]   //  0x02000200	//300~360	//M-R
+
+btd0x04000400	//reg_clren_Del_gain_21          regmap[0x4][0xA1C]   //  0x04000400
+btd0x04000400	//reg_clren_Del_gain_43          regmap[0x4][0xA20]   //  0x04000400
+btd0x04000400	//reg_clren_Del_gain_65          regmap[0x4][0xA24]   //  0x04000400
+btd0x04000400	//reg_clren_Del_gain_87          regmap[0x4][0xA28]   //  0x04000400
+btd0x04000400	//reg_clren_Del_gain_A9          regmap[0x4][0xA2C]   //  0x04000400
+btd0x04000400	//reg_clren_Del_gain_CB          regmap[0x4][0xA30]   //  0x04000400
+
+btd0x03e00400	//reg_clren_Hue_gain_21          regmap[0x4][0xA34]   //  0x04000400	//1: 0~60  2:60~120 
+btd0x040003e0	//reg_clren_Hue_gain_43          regmap[0x4][0xA38]   //  0x04000400
+btd0x04000400	//reg_clren_Hue_gain_65          regmap[0x4][0xA3C]   //  0x04000400
+btd0x04000400	//reg_clren_Hue_gain_87          regmap[0x4][0xA40]   //  0x04000400
+btd0x04000400	//reg_clren_Hue_gain_A9          regmap[0x4][0xA44]   //  0x04000400
+btd0x04000400	//reg_clren_Hue_gain_CB          regmap[0x4][0xA48]   //  0x04000400
+
+btd0x04000400	//reg_clren_SatTrfgrp1_21        regmap[0x4][0xA4C]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp1_43        regmap[0x4][0xA50]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp1_65        regmap[0x4][0xA54]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp1_87        regmap[0x4][0xA58]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp1_A9        regmap[0x4][0xA5C]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp1_CB        regmap[0x4][0xA60]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp2_21        regmap[0x4][0xA64]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp2_43        regmap[0x4][0xA68]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp2_65        regmap[0x4][0xA6C]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp2_87        regmap[0x4][0xA70]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp2_A9        regmap[0x4][0xA74]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp2_CB        regmap[0x4][0xA78]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp3_21        regmap[0x4][0xA7C]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp3_43        regmap[0x4][0xA80]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp3_65        regmap[0x4][0xA84]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp3_87        regmap[0x4][0xA88]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp3_A9        regmap[0x4][0xA8C]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp3_CB        regmap[0x4][0xA90]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp4_21        regmap[0x4][0xA94]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp4_43        regmap[0x4][0xA98]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp4_65        regmap[0x4][0xA9C]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp4_87        regmap[0x4][0xAA0]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp4_A9        regmap[0x4][0xAA4]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp4_CB        regmap[0x4][0xAA8]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp5_21        regmap[0x4][0xAAC]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp5_43        regmap[0x4][0xAB0]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp5_65        regmap[0x4][0xAB4]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp5_87        regmap[0x4][0xAB8]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp5_A9        regmap[0x4][0xABC]   //  0x04000400
+btd0x04000400	//reg_clren_SatTrfgrp5_CB        regmap[0x4][0xAC0]   //  0x04000400
+
+btd0x04000400	//reg_clren_DelTrfgrp2_21        regmap[0x4][0xAC4]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp2_43        regmap[0x4][0xAC8]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp2_65        regmap[0x4][0xACC]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp2_87        regmap[0x4][0xAD0]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp2_A9        regmap[0x4][0xAD4]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp2_CB        regmap[0x4][0xAD8]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp3_21        regmap[0x4][0xADC]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp3_43        regmap[0x4][0xAE0]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp3_65        regmap[0x4][0xAE4]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp3_87        regmap[0x4][0xAE8]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp3_A9        regmap[0x4][0xAEC]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp3_CB        regmap[0x4][0xAF0]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp4_21        regmap[0x4][0xAF4]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp4_43        regmap[0x4][0xAF8]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp4_65        regmap[0x4][0xAFC]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp4_87        regmap[0x4][0xB00]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp4_A9        regmap[0x4][0xB04]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp4_CB        regmap[0x4][0xB08]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp5_21        regmap[0x4][0xB0C]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp5_43        regmap[0x4][0xB10]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp5_65        regmap[0x4][0xB14]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp5_87        regmap[0x4][0xB18]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp5_A9        regmap[0x4][0xB1C]   //  0x04000400
+btd0x04000400	//reg_clren_DelTrfgrp5_CB        regmap[0x4][0xB20]   //  0x04000400
+
+//=======================================================================================
+//=== Bayer Pseudo Color Suppression
+//=======================================================================================
+btp0x00000004
+bta0x00000D00
+btd0x25050603	//reg_byr_ps_ctl                 regmap[0x4][0xD00]  // 0x25050603
+btd0x00016020	//reg_byr_ps_axb                 regmap[0x4][0xD04]  // 0x00016020
+
+//=======================================================================================
+//=== RGB Pseudo Color Suppression
+//=======================================================================================
+btp0x00000004
+bta0x00000D10
+btd0x25050603	//reg_rgb_ps_ctl                 regmap[0x4][0xD10]  // 0x25050603
+btd0x00016020	//reg_rgb_ps_axb                 regmap[0x4][0xD14]  // 0x00016020
+btd0x07030100   //reg_rgb_ps_rate3210            regmap[0x4][0xD18]  // 0xFFFFFFFF
+btd0x9b382314   //reg_rgb_ps_rate7654            regmap[0x4][0xD1C]  // 0xFFFFFFFF
+
+//=======================================================================================
+//=== YUV Pseudo Color Suppression
+//=======================================================================================
+btp0x00000004
+bta0x00000D20
+btd0x00002119	//reg_yuv_ps_ctl                 regmap[0x4][0xD20]  // 0x00002119
+btd0x20088060	//reg_yuv_ps_axb_maxmin          regmap[0x4][0xD24]  // 0x20088060
+btd0x868A94A4	//reg_yuv_ps_lum_gain_3210       regmap[0x4][0xD28]  // 0x868A94A4
+btd0x70788084	//reg_yuv_ps_lum_gain_7654       regmap[0x4][0xD2C]  // 0x70788084
+btd0x90989080	//reg_yuv_ps_sat_gain_3210       regmap[0x4][0xD30]  // 0x90989080
+btd0x60708088	//reg_yuv_ps_sat_gain_7654       regmap[0x4][0xD34]  // 0x60708088
+
+//=======================================================================================
+//=== CCM Pseudo Color Suppression
+//=======================================================================================
+btp0x00000004
+bta0x00000D50
+btd0x00000403   //reg_rgbccm_ps_ctl               regmap[0x4][0xD50]  // 0x00000400
+btd0x00008000   //reg_rgbccm_ps_axb               regmap[0x4][0xD54]  // 0x00008000
+btd0x5F96C8FF   //5f96F8ff	//FFFFFFFF   //reg_rgbccm_ps_rate3210          regmap[0x4][0xD58]  // 0xFFFFFFFF
+btd0x01141E3C   //00141e3c	//FFFFFFFF   //reg_rgbccm_ps_rate7654          regmap[0x4][0xD5C]  // 0xFFFFFFFF
+
+//=======================================================================================
+//=== Gamma Pseudo Color Suppression
+//=======================================================================================
+btp0x00000004
+bta0x00000D80
+btd0x00000403   //reg_rgbgam_ps_ctl               regmap[0x4][0xD80]  // 0x00000400
+btd0x00008010   //reg_rgbgam_ps_axb               regmap[0x4][0xD84]  // 0x00008000
+btd0xFFFFFFFF   //5f96c8ff	//FFFFFFFF   //reg_rgbgam_ps_rate3210          regmap[0x4][0xD88]  // 0xFFFFFFFF
+btd0xFFFFFFFF   //00141e3c	//FFFFFFFF   //reg_rgbgam_ps_rate7654          regmap[0x4][0xD8C]  // 0xFFFFFFFF
+
+//=======================================================================================
+//=== YUV Contrast/Brightness
+//=======================================================================================
+btp0x00000004
+bta0x00000E00
+btd0x00000000	//reg_yuv_contbrt_ctl             regmap[0x4][0xE00] // 0x00000000
+btd0x00000080	//reg_yuv_brtcont_gain            regmap[0x4][0xE04] // 0x00000080
+
+//=======================================================================================
+//=== Bayer/YUV Color Detection Yellow/Blue ( Page 4 0xF00~0xFFF)
+//=======================================================================================
+btp0x00000004
+bta0x00000F00
+btd0x00000000	//reg_color_det_ctl              regmap[0x4][0xF00]  //0x00000003
+btd0x7F887F00	//reg_cyan_rgb_gain              regmap[0x4][0xF04]  //0x7F887F88
+btd0x80898089	//reg_blue_rgb_gain              regmap[0x4][0xF08]  //0x80898089
+btd0x0010FF10	//reg_cyan_blue_lum              regmap[0x4][0xF0C]  //0x0010FF10
+btd0x8C807884	//reg_skin_rgb_gain              regmap[0x4][0xF10]  //0x8C807884
+btd0x7D8070A0	//reg_yell_rgb_gain              regmap[0x4][0xF14]  //0x7D8070A0
+btd0x2420FF10	//reg_skin_yell_lum              regmap[0x4][0xF18]  //0x2420FF10
+
+btp0x00000004
+bta0x00000F40
+btd0x00000000	//reg_ypre_cdet_ctl              regmap[0x4][0xF40]  //0x00000003
+btd0x7F887F10	//reg_ypre_cdet_ctl1             regmap[0x4][0xF44]  //0x7F887F10
+btd0x80898088	//reg_ypre_cdet_ctl2             regmap[0x4][0xF48]  //0x80898088
+btd0x0010FF89	//reg_ypre_cdet_ctl3             regmap[0x4][0xF4C]  //0x0010FF89
+btd0x8478808C	//reg_ypre_cdet_ctl4             regmap[0x4][0xF50]  //0x8478808C
+btd0x70807D24	//reg_ypre_cdet_ctl5             regmap[0x4][0xF54]  //0x70807D24
+btd0x10FF20A0	//reg_ypre_cdet_ctl6             regmap[0x4][0xF58]  //0x10FF20A0
+
+//=======================================================================================
+//=== Y-Pre-Processing (Sharp/NR)
+//=======================================================================================
+btp0x00000004
+bta0x00000F70
+btd0x80008000	//reg_ypre_std_ctl               regmap[0x4][0xF70]   // 0x80008000
+btd0x60602020	//reg_ypre_hv_def_gain           regmap[0x4][0xF74]   // 0x10102020
+btd0xC0804010	//reg_ypre_hv_graph_lum30        regmap[0x4][0xF78]   // 0xC0804010
+btd0x000000F0	//reg_ypre_hv_graph_lum4         regmap[0x4][0xF7C]   // 0x000000F0
+btd0xC0804010	//reg_ypre_hv_graph_edg30        regmap[0x4][0xF80]   // 0xC0804010
+btd0x000000F0	//reg_ypre_hv_graph_edg4         regmap[0x4][0xF84]   // 0x000000F0
+
+//=======================================================================================
+//=== RGB Color Interpolation 
+//=======================================================================================
+btp0x00000004
+bta0x00000FA0
+btd0x00000236	//reg_rgbint_ctl               regmap[0x4][0xFA0]  //  0x00000036
+btd0x00183020	//reg_rgbint_erate             regmap[0x4][0xFA4]  //  0x00183020
+btd0x00027000	//reg_rgbint_hv_std_ctl        regmap[0x4][0xFA8]  //  0x00017000
+btd0x04008000	//reg_rgbint_moire_def_ctl     regmap[0x4][0xFAC]  //  0x041F8000
+btd0x70104010	//reg_rgbint_sec_std_ctl       regmap[0x4][0xFB0]  //  0x70104010
+
+bta0x00000FB8
+btd0x00000277	//reg_rgbint_mix_rate_ctl      regmap[0x4][0xFB8]  //  0x00000277
+btd0x00012010	//reg_sub_int_ctl              regmap[0x4][0xFBC]  //  0x00012010
+btd0x18100800	//reg_rgbint_hv_lum_th_3210    regmap[0x4][0xFC0]  //  0x20100800
+btd0x38302820	//reg_rgbint_hv_lum_th_7654    regmap[0x4][0xFC4]  //  0x80604030
+btd0x00504840	//reg_rgbint_hv_lum_th_1098    regmap[0x4][0xFC8]  //  0x00FFC0A0
+btd0x20100800	//reg_rgbint_hv_edg_th_3210    regmap[0x4][0xFCC]  //  0x20100800
+btd0x60504030	//reg_rgbint_hv_edg_th_7654    regmap[0x4][0xFD0]  //  0x80604030
+btd0x00908070	//reg_rgbint_hv_edg_th_1098    regmap[0x4][0xFD4]  //  0x00FFC0A0
+btd0x0024282C	//reg_rgbint_hv_def_rate_ctl   regmap[0x4][0xFD8]  //  0x0024282C
+
+
+
+btp0x00000003
+bta0x00000600
+btd0x0000003E
+//btd0x03280261
+btd0x03330268		// frank 2015.10.21
+
+btp0x00000007
+bta0x00000000
+btd0x00993a95
+btd0x00952a40
+btd0x00816909
+btd0x0077584f
+btd0x006f080f
+btd0x006a7734
+btd0x0062b6c6
+btd0x0060a69f
+btd0x005b168c
+btd0x0060a671
+btd0x0060a682
+btd0x0065a6f0
+btd0x006c4741
+btd0x006e078d
+btd0x0070f82e
+btd0x008168e1
+btd0x008a79bd
+btd0x008dd9f0
+btd0x009d7ad2
+btd0x0088d976
+btd0x0079a871
+btd0x0070f7b6
+btd0x00672734
+btd0x00615695
+btd0x005b162c
+btd0x005855ef
+btd0x0055c5cc
+btd0x0057d5be
+btd0x0057d5da
+btd0x005ba62c
+btd0x00615682
+btd0x0065a6f0
+btd0x006b577f
+btd0x0076382e
+btd0x00816909
+btd0x008f9a24
+btd0x008f9a0a
+btd0x008008e1
+btd0x007417ff
+btd0x006c4741
+btd0x0061569f
+btd0x005b1624
+btd0x0055c5be
+btd0x00528574
+btd0x0051b54d
+btd0x0051b547
+btd0x0051b563
+btd0x0054d5a4
+btd0x0059f5fe
+btd0x005f5682
+btd0x00672706
+btd0x006e07a7
+btd0x007ae883
+btd0x008c19a5
+btd0x008dd976
+btd0x007c2871
+btd0x006f07a7
+btd0x0065a6e6
+btd0x005cd635
+btd0x0055c5b8
+btd0x0050d558
+btd0x004db510
+btd0x004b34f0
+btd0x004b94e3
+btd0x004c9507
+btd0x004ed53d
+btd0x00546592
+btd0x0058e60d
+btd0x006206b2
+btd0x006c4772
+btd0x0074182e
+btd0x007d691e
+btd0x008a7934
+btd0x0078781e
+btd0x006b574c
+btd0x0060a671
+btd0x0057d5d3
+btd0x0051b558
+btd0x004c44f9
+btd0x0048f4b7
+btd0x0047c491
+btd0x0046e491
+btd0x004854ab
+btd0x004ae4f0
+btd0x004f453d
+btd0x0055c5b8
+btd0x005d6656
+btd0x0067f712
+btd0x0070f7e0
+btd0x007c28f5
+btd0x0082c949
+btd0x007307ef
+btd0x006726fb
+btd0x005c4635
+btd0x0055459f
+btd0x004cf515
+btd0x0048a4b7
+btd0x00454473
+btd0x00443456
+btd0x0043b44d
+btd0x00454469
+btd0x004814ab
+btd0x004d5503
+btd0x0053757a
+btd0x005b161d
+btd0x006426d1
+btd0x006f07c4
+btd0x007d691e
+btd0x007c2909
+btd0x006ff7c4
+btd0x006666db
+btd0x005a860d
+btd0x0051b569
+btd0x004b34e3
+btd0x0046948a
+btd0x0043b447
+btd0x00415421
+btd0x00419424
+btd0x0042f43c
+btd0x00465476
+btd0x0049e4db
+btd0x0050d547
+btd0x0058e5e8
+btd0x0062b6a8
+btd0x006d278d
+btd0x007ae8ce
+btd0x007d6909
+btd0x006f07a7
+btd0x006426b2
+btd0x005855e8
+btd0x00506547
+btd0x004944c6
+btd0x00454463
+btd0x0041942b
+btd0x00404408
+btd0x00400408
+btd0x0041c424
+btd0x0044b45a
+btd0x004944b7
+btd0x0050652e
+btd0x005745cc
+btd0x0060a679
+btd0x0069a766
+btd0x007518ba
+btd0x008008f5
+btd0x006f079a
+btd0x0062b6a8
+btd0x005855da
+btd0x004fa53d
+btd0x004944b7
+btd0x0044345d
+btd0x0041941e
+btd0x00400400
+btd0x004003fd
+btd0x00411419
+btd0x00447450
+btd0x0048f4a8
+btd0x004ed51a
+btd0x005645b1
+btd0x005ff671
+btd0x006b5759
+btd0x007ae8a7
+btd0x0085b91e
+btd0x0070f7a7
+btd0x0062b6a8
+btd0x0057d5e1
+btd0x0050053d
+btd0x0048f4b7
+btd0x0044b45d
+btd0x0041c424
+btd0x00400400
+btd0x0040e402
+btd0x0041541c
+btd0x00447454
+btd0x0048f4a8
+btd0x004e7524
+btd0x005745be
+btd0x005ff671
+btd0x006b5766
+btd0x007ae8ce
+btd0x007eb8e1
+btd0x006ff7a7
+btd0x0064d6c6
+btd0x0059f5f6
+btd0x00506553
+btd0x004ae4d7
+btd0x00460479
+btd0x0042b43c
+btd0x0040a419
+btd0x00419417
+btd0x0042442b
+btd0x0045c469
+btd0x0049e4c2
+btd0x00506538
+btd0x0056d5cc
+btd0x0061568c
+btd0x006b5772
+btd0x007878ba
+btd0x008448ce
+btd0x007307c4
+btd0x006666fb
+btd0x005b161d
+btd0x00528580
+btd0x004c94f9
+btd0x0047c49d
+btd0x0044745f
+btd0x0042f442
+btd0x0042b436
+btd0x0044345a
+btd0x0047248a
+btd0x004b94e3
+btd0x0051b563
+btd0x005965ef
+btd0x006366a8
+btd0x006d278d
+btd0x0079a8ce
+btd0x00800949
+btd0x0073080f
+btd0x0068c728
+btd0x005eb65e
+btd0x0055c5b1
+btd0x004f4533
+btd0x004a94db
+btd0x00472499
+btd0x00469473
+btd0x00460479
+btd0x00472487
+btd0x0049e4c2
+btd0x004e751f
+btd0x00546592
+btd0x005d662c
+btd0x0065a6f0
+btd0x006f07c4
+btd0x007ae8e1
+btd0x0082c98d
+btd0x0076384f
+btd0x006c4766
+btd0x0062b6a8
+btd0x0059f605
+btd0x0052f580
+btd0x004e151a
+btd0x004b94db
+btd0x004944b7
+btd0x004994ba
+btd0x004b34cf
+btd0x004d5510
+btd0x00528563
+btd0x005965e1
+btd0x0060a671
+btd0x006a7728
+btd0x007307ff
+btd0x007d691e
+btd0x008a798d
+btd0x007c2895
+btd0x0070f7d2
+btd0x00672706
+btd0x005e165e
+btd0x0057d5d3
+btd0x0052f574
+btd0x00500533
+btd0x004d5515
+btd0x004db510
+btd0x004fa52e
+btd0x00528563
+btd0x0056d5b8
+btd0x005d663d
+btd0x0064d6d1
+btd0x006f078d
+btd0x0076384f
+btd0x007eb949
+btd0x008f99f0
+btd0x008168f5
+btd0x0076382e
+btd0x006c4772
+btd0x006426d1
+btd0x005e163d
+btd0x0058e5e1
+btd0x0055459f
+btd0x00537586
+btd0x0053e57a
+btd0x0055459f
+btd0x005745d3
+btd0x005cd61d
+btd0x0063669f
+btd0x006a7734
+btd0x0070f7e0
+btd0x008008e1
+btd0x00952a40
+btd0x00993b7a
+btd0x0088d9bd
+btd0x007c2883
+btd0x006ff7e0
+btd0x006a7759
+btd0x0062b6d1
+btd0x005e165e
+btd0x005b161d
+btd0x0058e5ef
+btd0x0058e5e8
+btd0x005b1615
+btd0x005d6645
+btd0x0064269f
+btd0x00666706
+btd0x006ff79a
+btd0x0078784f
+btd0x008a79a5
+btd0x00a47b9e
+btd0x00972b34
+btd0x00934ad2
+btd0x008448f5
+btd0x00751871
+btd0x0073081e
+btd0x0068c7a7
+btd0x0064d712
+btd0x006366d1
+btd0x0060a682
+btd0x005ff682
+btd0x006366bc
+btd0x006666e6
+btd0x006f0759
+btd0x006a779a
+btd0x0077581e
+btd0x0082c8e1
+btd0x00993ab3
+btd0x009fbb34
+btd0x009bba95
+btd0x00994a40
+btd0x008e6909
+btd0x0081e84f
+btd0x0079080f
+btd0x00718734
+btd0x007066c6
+btd0x0068369f
+btd0x006d268c
+btd0x00692671
+btd0x006c1682
+btd0x006b26f0
+btd0x0072b741
+btd0x007eb78d
+btd0x008a882e
+btd0x0086e8e1
+btd0x0096f9bd
+btd0x009bb9f0
+btd0x009e3ad2
+btd0x00906976
+btd0x00852871
+btd0x007a67b6
+btd0x00718734
+btd0x00683695
+btd0x0064a62c
+btd0x005f25ef
+btd0x005e65cc
+btd0x005da5be
+btd0x005fd5da
+btd0x0062362c
+btd0x00692682
+btd0x0072b6f0
+btd0x007bd77f
+btd0x0081e82e
+btd0x008e6909
+btd0x009e3a24
+btd0x00994a0a
+btd0x008a88e1
+btd0x007eb7ff
+btd0x00751741
+btd0x006c169f
+btd0x00623624
+btd0x005cf5be
+btd0x00591574
+btd0x0055854d
+btd0x0056b547
+btd0x00587563
+btd0x005c45a4
+btd0x006305fe
+btd0x006b2682
+btd0x0072b706
+btd0x007eb7a7
+btd0x0088a883
+btd0x0094a9a5
+btd0x008c7976
+btd0x0081e871
+btd0x007907a7
+btd0x006d26e6
+btd0x0064a635
+btd0x005ba5b8
+btd0x00558558
+btd0x00517510
+btd0x004f84f0
+btd0x004f84e3
+btd0x0050f507
+btd0x0056153d
+btd0x005af592
+btd0x0063d60d
+btd0x006e36b2
+btd0x0077a772
+btd0x0081e82e
+btd0x008e691e
+btd0x00906934
+btd0x0080481e
+btd0x0073e74c
+btd0x00683671
+btd0x005e65d3
+btd0x00561558
+btd0x005074f9
+btd0x004bc4b7
+btd0x004a9491
+btd0x004a3491
+btd0x004af4ab
+btd0x004f84f0
+btd0x0055853d
+btd0x005cf5b8
+btd0x00683656
+btd0x0073e712
+btd0x008047e0
+btd0x009068f5
+btd0x0081e949
+btd0x007907ef
+btd0x007186fb
+btd0x0064a635
+btd0x005a559f
+btd0x00517515
+btd0x004b54b7
+btd0x0047b473
+btd0x00452456
+btd0x0045244d
+btd0x0046b469
+btd0x004a94ab
+btd0x00526503
+btd0x005a557a
+btd0x0064a61d
+btd0x006e36d1
+btd0x007a67c4
+btd0x008a891e
+btd0x0086e909
+btd0x007907c4
+btd0x006e36db
+btd0x0061660d
+btd0x00574569
+btd0x004e34e3
+btd0x0048148a
+btd0x00444447
+btd0x00425421
+btd0x00425424
+btd0x0044043c
+btd0x0047b476
+btd0x004eb4db
+btd0x0056b547
+btd0x006165e8
+btd0x006d26a8
+btd0x0079078d
+btd0x0088a8ce
+btd0x00852909
+btd0x007667a7
+btd0x006b26b2
+btd0x005f25e8
+btd0x00550547
+btd0x004cf4c6
+btd0x00470463
+btd0x0042542b
+btd0x00404408
+btd0x0040c408
+btd0x00425424
+btd0x0046145a
+btd0x004c24b7
+btd0x0055852e
+btd0x005da5cc
+btd0x00692679
+btd0x00751766
+btd0x008388ba
+btd0x0081e8f5
+btd0x0075179a
+btd0x006b26a8
+btd0x005da5da
+btd0x0055053d
+btd0x004c84b7
+btd0x0045745d
+btd0x0041841e
+btd0x00400400
+btd0x004043fd
+btd0x00418419
+btd0x00449450
+btd0x004af4a8
+btd0x0053751a
+btd0x005cf5b1
+btd0x006a1671
+btd0x0073e759
+btd0x008048a7
+btd0x0080491e
+btd0x0073e7a7
+btd0x006a16a8
+btd0x005f25e1
+btd0x0054753d
+btd0x004c24b7
+btd0x0045c45d
+btd0x00420424
+btd0x003fc400
+btd0x00400402
+btd0x0041841c
+btd0x00457454
+btd0x004af4a8
+btd0x00537524
+btd0x005e65be
+btd0x006a1671
+btd0x00766766
+btd0x008528ce
+btd0x008528e1
+btd0x007667a7
+btd0x006b26c6
+btd0x005fd5f6
+btd0x00558553
+btd0x004dc4d7
+btd0x0047b479
+btd0x0043b43c
+btd0x0041c419
+btd0x0040c417
+btd0x0042942b
+btd0x00461469
+btd0x004c84c2
+btd0x00547538
+btd0x005f25cc
+btd0x006b268c
+btd0x0077a772
+btd0x0086e8ba
+btd0x008528ce
+btd0x007907c4
+btd0x006f46fb
+btd0x0063d61d
+btd0x00587580
+btd0x005004f9
+btd0x004a349d
+btd0x0045c45f
+btd0x00440442
+btd0x00436436
+btd0x0045745a
+btd0x0048c48a
+btd0x004f14e3
+btd0x00574563
+btd0x0060a5ef
+btd0x006d26a8
+btd0x0079078d
+btd0x0088a8ce
+btd0x0081e949
+btd0x0079080f
+btd0x00718728
+btd0x0065865e
+btd0x005ba5b1
+btd0x00537533
+btd0x004dc4db
+btd0x0049d499
+btd0x00470473
+btd0x00470479
+btd0x00491487
+btd0x004c84c2
+btd0x0052e51f
+btd0x005af592
+btd0x0064a62c
+btd0x007186f0
+btd0x007eb7c4
+btd0x009068e1
+btd0x008e698d
+btd0x0080484f
+btd0x00751766
+btd0x006c16a8
+btd0x0060a605
+btd0x00591580
+btd0x0052651a
+btd0x004e34db
+btd0x004c24b7
+btd0x004bc4ba
+btd0x004e34cf
+btd0x00517510
+btd0x0057d563
+btd0x0060a5e1
+btd0x006a1671
+btd0x00766728
+btd0x008047ff
+btd0x008c791e
+btd0x0094a98d
+btd0x00852895
+btd0x007907d2
+btd0x00706706
+btd0x0067465e
+btd0x005e65d3
+btd0x0057d574
+btd0x00547533
+btd0x00526515
+btd0x00526510
+btd0x0053f52e
+btd0x0056b563
+btd0x005cf5b8
+btd0x0067463d
+btd0x006f46d1
+btd0x007bd78d
+btd0x0086e84f
+btd0x0094a949
+btd0x00a669f0
+btd0x009068f5
+btd0x0080482e
+btd0x00766772
+btd0x006d26d1
+btd0x0065863d
+btd0x005f25e1
+btd0x005af59f
+btd0x00591586
+btd0x0059b57a
+btd0x0059b59f
+btd0x005da5d3
+btd0x0064a61d
+btd0x006e369f
+btd0x00766734
+btd0x008047e0
+btd0x009068e1
+btd0x00a66a40
+btd0x00a95b7a
+btd0x0096f9bd
+btd0x0088a883
+btd0x007bd7e0
+btd0x0073e759
+btd0x006d26d1
+btd0x0067465e
+btd0x0064a61d
+btd0x0060a5ef
+btd0x0060a5e8
+btd0x00616615
+btd0x00658645
+btd0x006c169f
+btd0x00751706
+btd0x007d379a
+btd0x0086e84f
+btd0x00a0d9a5
+btd0x00c5fb9e
+btd0x00a66b34
+btd0x00a0dad2
+btd0x0094a8f5
+btd0x00838871
+btd0x007eb81e
+btd0x007907a7
+btd0x0073e712
+btd0x007516d1
+btd0x006d2682
+btd0x006b2682
+btd0x006e36bc
+btd0x007186e6
+btd0x0077a759
+btd0x0080479a
+btd0x0086e81e
+btd0x009068e1
+btd0x00bdcab3
+btd0x00c1cb34
+
+// shading enable (w/ page-b)
+btp0x00000003
+bta0x00000600
+btd0x0001003F
+bta0x00000700
+btd0x40000000
+
+// output window (crop)
+//btp0x00000001
+//bta0x00000024
+//btd0x00000014
+
+
+//=======================================================================================
+//=== Data Pedestal Value Control Register
+//=======================================================================================
+//byrgain ==========================================================
+btp0x00000003
+bta0x00000000
+btd0x000001e1   //								  regmap[0x3][0x000] // 0x00000001   // Control bit
+btd0x00100010   //reg_PrePosAgain_b               regmap[0x3][0x004] // 0x00000000  // 32bit Pre/Post Add Gain
+btd0x00100010   //reg_PrePosAgain_gb              regmap[0x3][0x008] // 0x00000000  // 32bit Pre/Post Add Gain
+btd0x00100010   //reg_PrePosAgain_gr              regmap[0x3][0x00C] // 0x00000000  // 32bit Pre/Post Add Gain
+btd0x00100010   //reg_PrePosAgain_r               regmap[0x3][0x010] // 0x00000000  // 32bit Pre/Post Add Gain
+btd0x04000400	//reg_chMgain_rb                  regmap[0x3][0x014] // 0x04000400  // 16bit 
+btd0x04000400   //reg_chMgain_grb                 regmap[0x3][0x018] // 0x04000400  // 16bit 
+btd0x03FF0000   //reg_chgainLmtHL                 regmap[0x3][0x01C] // 0x03FF0000  // 32bit HighLm LowLm
+//byrgain ==========================================================
+//byrawbgain ==========================================================
+btp0x00000003
+bta0x00000100
+btd0x00000001   //reg_wbgain_ctl                  regmap[0x3][0x100]    // 0x00000001   
+bta0x00000110
+btd0x00108010   //reg_wbgain_ofs                  regmap[0x3][0x110]    // 0x00000400  
+btd0x000003ff   //reg_wbgain_lmt                  regmap[0x3][0x114]    // 0x00000400  
+//byrawbgain ==========================================================
+//rgbaebgain ==========================================================
+btp0x00000003
+bta0x00000140
+btd0x00000003   //reg_aegain_ctl                  regmap[0x3][0x140]    // 0x00000003   
+bta0x00000154
+btd0x00008010   //reg_aegain_ofs                  regmap[0x3][0x154]    // 0x00000400   
+btd0x000003ff   //reg_aegain_lmt                  regmap[0x3][0x158]    // 0x00000400   
+//rgbaebgain ==========================================================
+//rgbext ==========================================================
+btp0x00000003
+bta0x00000208
+btd0x00004101	//reg_rgbext_ctl                 regmap[0x3][0x208]    //0x00000001
+//rgbext ==========================================================
+//rgbg ratio ==========================================================
+btp0x00000002
+bta0x00000210
+btd0x00402A07	//reg_awbreg_ctl                 regmap[0x2][0x210]    // [23:16] : pedestal value
+//rgbg ratio ==========================================================
+
+btp0x00000003
+bta0x00000300
+btd0x00001004	//5   //regmap[0x3][0x400]  [15:8]:data pedestal value control of Bayer Curve Gain
+bta0x000003C8
+btd0x01F80208   //regmap[0x3][0x3C8]  [15:8]:data pedestal gain value
+
+btp0x00000003
+bta0x00000608
+btd0x00100400   //regmap[0x3][0x608]  [23:16]:data pedestal value control of Lens Shading
+
+// update
+btp0x00000000
+bta0x00000074
+btd0xFFFFFFFF
+
